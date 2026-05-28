@@ -1,0 +1,14 @@
+# Build artefacts
+cohort-walker
+cohort-walker.exe
+*.test
+*.out
+
+# Dev scratch
+drift-report.md
+current-snapshot.json
+drift-delta.json
+
+# OS
+.DS_Store
+Thumbs.db

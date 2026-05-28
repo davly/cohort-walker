@@ -1,0 +1,98 @@
+# cohort-drift-check.yml — GitHub Actions template (workflow_dispatch only).
+#
+# This workflow is INTENTIONALLY workflow_dispatch-only. cohort-walker is
+# an infrastructure tool used across the Limitless monorepos; auto-
+# triggering on push from this repo would create false-positive drift
+# (the cohort baselines live elsewhere). An operator runs the workflow
+# manually from the Actions tab when a fresh drift report is wanted.
+#
+# Usage:
+#   1. Operator pushes the snapshot artefact they want to compare
+#      against (or relies on the artefact-restore step).
+#   2. Operator dispatches this workflow.
+#   3. The workflow uploads the markdown drift report + JSON delta as
+#      build artefacts and posts a comment to the dispatch run summary.
+#
+# Exit-code semantics (mirror lore-mark-verify + cohort-map):
+#   0 = OK · 1 = drift FAIL · 2 = drift WARN (strict) · 3 = stale baseline
+#   5 = KAT-1 drift · 6 = usage · 9 = internal error
+
+name: cohort-drift-check
+
+on:
+  workflow_dispatch:
+    inputs:
+      baseline:
+        description: 'Path to baseline snapshot.json (relative to repo root)'
+        required: true
+        default: 'cohort-snapshot-2026-05-28.json'
+      strict:
+        description: 'Treat WARN as failure'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  drift-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build cohort-walker
+        run: go build ./cmd/cohort-walker
+
+      - name: Run cohort-walker verify
+        id: verify
+        run: |
+          set +e
+          STRICT_FLAG=""
+          if [ "${{ inputs.strict }}" = "true" ]; then
+            STRICT_FLAG="--strict"
+          fi
+          ./cohort-walker verify --baseline "${{ inputs.baseline }}" $STRICT_FLAG
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+
+      - name: Render markdown report
+        if: always()
+        run: |
+          ./cohort-walker report --baseline "${{ inputs.baseline }}" --out drift-report.md || true
+
+      - name: Render JSON delta
+        if: always()
+        run: |
+          ./cohort-walker scan --out current-snapshot.json
+          ./cohort-walker diff --baseline "${{ inputs.baseline }}" --current current-snapshot.json > drift-delta.json || true
+
+      - name: Upload drift report artefact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cohort-drift-report-${{ github.run_id }}
+          path: |
+            drift-report.md
+            drift-delta.json
+            current-snapshot.json
+          retention-days: 30
+
+      - name: Post summary
+        if: always()
+        run: |
+          echo "## cohort-walker drift report" >> $GITHUB_STEP_SUMMARY
+          echo "Baseline: \`${{ inputs.baseline }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "Exit code: \`${{ steps.verify.outputs.exit_code }}\`" >> $GITHUB_STEP_SUMMARY
+          if [ -f drift-report.md ]; then
+            cat drift-report.md >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Fail step if drift detected
+        if: steps.verify.outputs.exit_code != '0'
+        run: exit ${{ steps.verify.outputs.exit_code }}

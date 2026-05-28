@@ -1,0 +1,5532 @@
+{
+  "schema_version": "cohort-walker.v1",
+  "captured_at": "2026-05-28T10:09:37.9113625Z",
+  "roots": [
+    "C:\\limitless\\flagships",
+    "C:\\limitless\\infrastructure",
+    "C:\\limitless\\engines",
+    "C:\\limitless\\foundation"
+  ],
+  "members": [
+    {
+      "name": "causal",
+      "path": "C:\\limitless\\engines\\causal",
+      "cohort": "engines",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "echo",
+      "path": "C:\\limitless\\engines\\echo",
+      "cohort": "engines",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "oracle",
+      "path": "C:\\limitless\\engines\\oracle",
+      "cohort": "engines",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "parallax",
+      "path": "C:\\limitless\\engines\\parallax",
+      "cohort": "engines",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "synthesis",
+      "path": "C:\\limitless\\engines\\synthesis",
+      "cohort": "engines",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "absurd",
+      "path": "C:\\limitless\\flagships\\absurd",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "abyss",
+      "path": "C:\\limitless\\flagships\\abyss",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "academy",
+      "path": "C:\\limitless\\flagships\\academy",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "aegis",
+      "path": "C:\\limitless\\flagships\\aegis",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "alloy",
+      "path": "C:\\limitless\\flagships\\alloy",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "almanac",
+      "path": "C:\\limitless\\flagships\\almanac",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "anchor",
+      "path": "C:\\limitless\\flagships\\anchor",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "antcolony",
+      "path": "C:\\limitless\\flagships\\antcolony",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "anvil",
+      "path": "C:\\limitless\\flagships\\anvil",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "arbiter",
+      "path": "C:\\limitless\\flagships\\arbiter",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "arbiter-legal",
+      "path": "C:\\limitless\\flagships\\arbiter-legal",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "archaeologist",
+      "path": "C:\\limitless\\flagships\\archaeologist",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "argus",
+      "path": "C:\\limitless\\flagships\\argus",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "artisan",
+      "path": "C:\\limitless\\flagships\\artisan",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "assembly-line",
+      "path": "C:\\limitless\\flagships\\assembly-line",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "atelier",
+      "path": "C:\\limitless\\flagships\\atelier",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "atlas",
+      "path": "C:\\limitless\\flagships\\atlas",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "atom",
+      "path": "C:\\limitless\\flagships\\atom",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "authguard",
+      "path": "C:\\limitless\\flagships\\authguard",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "autopilot",
+      "path": "C:\\limitless\\flagships\\autopilot",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "axiom",
+      "path": "C:\\limitless\\flagships\\axiom",
+      "cohort": "flagships",
+      "substrate": "idris",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "band",
+      "path": "C:\\limitless\\flagships\\band",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "barista",
+      "path": "C:\\limitless\\flagships\\barista",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "baseline-native",
+      "path": "C:\\limitless\\flagships\\baseline-native",
+      "cohort": "flagships",
+      "substrate": "swift",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "bastion",
+      "path": "C:\\limitless\\flagships\\bastion",
+      "cohort": "flagships",
+      "substrate": "gleam",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "bastion-jvm",
+      "path": "C:\\limitless\\flagships\\bastion-jvm",
+      "cohort": "flagships",
+      "substrate": "java",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "beacon",
+      "path": "C:\\limitless\\flagships\\beacon",
+      "cohort": "flagships",
+      "substrate": "php",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "beacon-wear",
+      "path": "C:\\limitless\\flagships\\beacon-wear",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "bedrock-c",
+      "path": "C:\\limitless\\flagships\\bedrock-c",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "bias-audit",
+      "path": "C:\\limitless\\flagships\\bias-audit",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "blitz",
+      "path": "C:\\limitless\\flagships\\blitz",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "blueprint",
+      "path": "C:\\limitless\\flagships\\blueprint",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "boundary",
+      "path": "C:\\limitless\\flagships\\boundary",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "brewer",
+      "path": "C:\\limitless\\flagships\\brewer",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "bridge-wasm",
+      "path": "C:\\limitless\\flagships\\bridge-wasm",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "bulwark",
+      "path": "C:\\limitless\\flagships\\bulwark",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cadence-blind",
+      "path": "C:\\limitless\\flagships\\cadence-blind",
+      "cohort": "flagships",
+      "substrate": "haskell",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cadenza",
+      "path": "C:\\limitless\\flagships\\cadenza",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cairo-forge",
+      "path": "C:\\limitless\\flagships\\cairo-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "canary",
+      "path": "C:\\limitless\\flagships\\canary",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "canopy",
+      "path": "C:\\limitless\\flagships\\canopy",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "caravan",
+      "path": "C:\\limitless\\flagships\\caravan",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cartographer",
+      "path": "C:\\limitless\\flagships\\cartographer",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cascade",
+      "path": "C:\\limitless\\flagships\\cascade",
+      "cohort": "flagships",
+      "substrate": "javascript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "casino",
+      "path": "C:\\limitless\\flagships\\casino",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "catala-forge",
+      "path": "C:\\limitless\\flagships\\catala-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "choreograph",
+      "path": "C:\\limitless\\flagships\\choreograph",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "chronicle",
+      "path": "C:\\limitless\\flagships\\chronicle",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cipher",
+      "path": "C:\\limitless\\flagships\\cipher",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cipher-next",
+      "path": "C:\\limitless\\flagships\\cipher-next",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "citadel",
+      "path": "C:\\limitless\\flagships\\citadel",
+      "cohort": "flagships",
+      "substrate": "ada",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "claude-desktop",
+      "path": "C:\\limitless\\flagships\\claude-desktop",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "climasense",
+      "path": "C:\\limitless\\flagships\\climasense",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "clinician",
+      "path": "C:\\limitless\\flagships\\clinician",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cloudforge",
+      "path": "C:\\limitless\\flagships\\cloudforge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "comparator",
+      "path": "C:\\limitless\\flagships\\comparator",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "compass",
+      "path": "C:\\limitless\\flagships\\compass",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "confluence",
+      "path": "C:\\limitless\\flagships\\confluence",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "conjure",
+      "path": "C:\\limitless\\flagships\\conjure",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "console-forge",
+      "path": "C:\\limitless\\flagships\\console-forge",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "contentguard",
+      "path": "C:\\limitless\\flagships\\contentguard",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "coolify-forge",
+      "path": "C:\\limitless\\flagships\\coolify-forge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cortex",
+      "path": "C:\\limitless\\flagships\\cortex",
+      "cohort": "flagships",
+      "substrate": "cpp",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "counsel",
+      "path": "C:\\limitless\\flagships\\counsel",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "couture",
+      "path": "C:\\limitless\\flagships\\couture",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "crucible",
+      "path": "C:\\limitless\\flagships\\crucible",
+      "cohort": "flagships",
+      "substrate": "r",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "cruciform",
+      "path": "C:\\limitless\\flagships\\cruciform",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "crystal-forge",
+      "path": "C:\\limitless\\flagships\\crystal-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "curator-museum",
+      "path": "C:\\limitless\\flagships\\curator-museum",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "datalog-forge",
+      "path": "C:\\limitless\\flagships\\datalog-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "deeds-mobile",
+      "path": "C:\\limitless\\flagships\\deeds-mobile",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "devforge",
+      "path": "C:\\limitless\\flagships\\devforge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "diagnosis",
+      "path": "C:\\limitless\\flagships\\diagnosis",
+      "cohort": "flagships",
+      "substrate": "perl",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "dialect",
+      "path": "C:\\limitless\\flagships\\dialect",
+      "cohort": "flagships",
+      "substrate": "racket",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "dialect-red",
+      "path": "C:\\limitless\\flagships\\dialect-red",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "dipstick",
+      "path": "C:\\limitless\\flagships\\dipstick",
+      "cohort": "flagships",
+      "substrate": "kotlin",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "dispatch",
+      "path": "C:\\limitless\\flagships\\dispatch",
+      "cohort": "flagships",
+      "substrate": "elixir",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "domino",
+      "path": "C:\\limitless\\flagships\\domino",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "dream-forge",
+      "path": "C:\\limitless\\flagships\\dream-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "dreamcatcher",
+      "path": "C:\\limitless\\flagships\\dreamcatcher",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "drift",
+      "path": "C:\\limitless\\flagships\\drift",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "drift-native",
+      "path": "C:\\limitless\\flagships\\drift-native",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "dynamo",
+      "path": "C:\\limitless\\flagships\\dynamo",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "dynast",
+      "path": "C:\\limitless\\flagships\\dynast",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "echo-chamber",
+      "path": "C:\\limitless\\flagships\\echo-chamber",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "effect",
+      "path": "C:\\limitless\\flagships\\effect",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "elm-forge",
+      "path": "C:\\limitless\\flagships\\elm-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "ember",
+      "path": "C:\\limitless\\flagships\\ember",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "equipoise",
+      "path": "C:\\limitless\\flagships\\equipoise",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "estimator",
+      "path": "C:\\limitless\\flagships\\estimator",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "facet",
+      "path": "C:\\limitless\\flagships\\facet",
+      "cohort": "flagships",
+      "substrate": "fsharp",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "fieldstone",
+      "path": "C:\\limitless\\flagships\\fieldstone",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "filament",
+      "path": "C:\\limitless\\flagships\\filament",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "fixture-forge",
+      "path": "C:\\limitless\\flagships\\fixture-forge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "flavornet",
+      "path": "C:\\limitless\\flagships\\flavornet",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "fleetworks-torque",
+      "path": "C:\\limitless\\flagships\\fleetworks-torque",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "fluent",
+      "path": "C:\\limitless\\flagships\\fluent",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "folio",
+      "path": "C:\\limitless\\flagships\\folio",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "forge-game",
+      "path": "C:\\limitless\\flagships\\forge-game",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "forge-ide",
+      "path": "C:\\limitless\\flagships\\forge-ide",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "forge-zero",
+      "path": "C:\\limitless\\flagships\\forge-zero",
+      "cohort": "flagships",
+      "substrate": "zig",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "forgefit",
+      "path": "C:\\limitless\\flagships\\forgefit",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "fossil",
+      "path": "C:\\limitless\\flagships\\fossil",
+      "cohort": "flagships",
+      "substrate": "csharp",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "foundry",
+      "path": "C:\\limitless\\flagships\\foundry",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "fracture",
+      "path": "C:\\limitless\\flagships\\fracture",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "gaia",
+      "path": "C:\\limitless\\flagships\\gaia",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "gambit",
+      "path": "C:\\limitless\\flagships\\gambit",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "garnet",
+      "path": "C:\\limitless\\flagships\\garnet",
+      "cohort": "flagships",
+      "substrate": "ruby",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "garrison",
+      "path": "C:\\limitless\\flagships\\garrison",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "gazette",
+      "path": "C:\\limitless\\flagships\\gazette",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "genesis-forge",
+      "path": "C:\\limitless\\flagships\\genesis-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "ghost",
+      "path": "C:\\limitless\\flagships\\ghost",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "gleam-js",
+      "path": "C:\\limitless\\flagships\\gleam-js",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "godfather",
+      "path": "C:\\limitless\\flagships\\godfather",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "grain",
+      "path": "C:\\limitless\\flagships\\grain",
+      "cohort": "flagships",
+      "substrate": "ocaml",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "graphql-forge",
+      "path": "C:\\limitless\\flagships\\graphql-forge",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "green-anchor",
+      "path": "C:\\limitless\\flagships\\green-anchor",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "greenhouse",
+      "path": "C:\\limitless\\flagships\\greenhouse",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "greenwatch",
+      "path": "C:\\limitless\\flagships\\greenwatch",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "gridlock",
+      "path": "C:\\limitless\\flagships\\gridlock",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "grove",
+      "path": "C:\\limitless\\flagships\\grove",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "harmonia",
+      "path": "C:\\limitless\\flagships\\harmonia",
+      "cohort": "flagships",
+      "substrate": "haskell",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "harvest",
+      "path": "C:\\limitless\\flagships\\harvest",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "haven",
+      "path": "C:\\limitless\\flagships\\haven",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "hearthstone",
+      "path": "C:\\limitless\\flagships\\hearthstone",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "helicase",
+      "path": "C:\\limitless\\flagships\\helicase",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "helix",
+      "path": "C:\\limitless\\flagships\\helix",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "helix-dna",
+      "path": "C:\\limitless\\flagships\\helix-dna",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "horizon",
+      "path": "C:\\limitless\\flagships\\horizon",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "howler",
+      "path": "C:\\limitless\\flagships\\howler",
+      "cohort": "flagships",
+      "substrate": "kotlin",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "inksort",
+      "path": "C:\\limitless\\flagships\\inksort",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "inkwell",
+      "path": "C:\\limitless\\flagships\\inkwell",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "insights",
+      "path": "C:\\limitless\\flagships\\insights",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "interstellar",
+      "path": "C:\\limitless\\flagships\\interstellar",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "iris",
+      "path": "C:\\limitless\\flagships\\iris",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "joinery",
+      "path": "C:\\limitless\\flagships\\joinery",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "joule",
+      "path": "C:\\limitless\\flagships\\joule",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "kindle",
+      "path": "C:\\limitless\\flagships\\kindle",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "kmp-forge",
+      "path": "C:\\limitless\\flagships\\kmp-forge",
+      "cohort": "flagships",
+      "substrate": "kotlin",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "labyrinth",
+      "path": "C:\\limitless\\flagships\\labyrinth",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "lantern",
+      "path": "C:\\limitless\\flagships\\lantern",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "lattice",
+      "path": "C:\\limitless\\flagships\\lattice",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "launchpad",
+      "path": "C:\\limitless\\flagships\\launchpad",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "ledger",
+      "path": "C:\\limitless\\flagships\\ledger",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "lens",
+      "path": "C:\\limitless\\flagships\\lens",
+      "cohort": "flagships",
+      "substrate": "cpp",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "lexicon",
+      "path": "C:\\limitless\\flagships\\lexicon",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-aegis",
+      "path": "C:\\limitless\\flagships\\limitless-aegis",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-audit-chain-demo",
+      "path": "C:\\limitless\\flagships\\limitless-audit-chain-demo",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-browser",
+      "path": "C:\\limitless\\flagships\\limitless-browser",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-classroom",
+      "path": "C:\\limitless\\flagships\\limitless-classroom",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-cybersec",
+      "path": "C:\\limitless\\flagships\\limitless-cybersec",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-environmental",
+      "path": "C:\\limitless\\flagships\\limitless-environmental",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-immigration",
+      "path": "C:\\limitless\\flagships\\limitless-immigration",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-ocaml",
+      "path": "C:\\limitless\\flagships\\limitless-ocaml",
+      "cohort": "flagships",
+      "substrate": "ocaml",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-ops",
+      "path": "C:\\limitless\\flagships\\limitless-ops",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-passport",
+      "path": "C:\\limitless\\flagships\\limitless-passport",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-pensionspath",
+      "path": "C:\\limitless\\flagships\\limitless-pensionspath",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-prosecutor",
+      "path": "C:\\limitless\\flagships\\limitless-prosecutor",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-recruitment",
+      "path": "C:\\limitless\\flagships\\limitless-recruitment",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-skillsforge",
+      "path": "C:\\limitless\\flagships\\limitless-skillsforge",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-stack-showcase",
+      "path": "C:\\limitless\\flagships\\limitless-stack-showcase",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-zig",
+      "path": "C:\\limitless\\flagships\\limitless-zig",
+      "cohort": "flagships",
+      "substrate": "zig",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "lingualforge",
+      "path": "C:\\limitless\\flagships\\lingualforge",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "liquidvote",
+      "path": "C:\\limitless\\flagships\\liquidvote",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "livestream",
+      "path": "C:\\limitless\\flagships\\livestream",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "livestream-ps-2026-05-22",
+      "path": "C:\\limitless\\flagships\\livestream-ps-2026-05-22",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "locus",
+      "path": "C:\\limitless\\flagships\\locus",
+      "cohort": "flagships",
+      "substrate": "dart",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "logwise",
+      "path": "C:\\limitless\\flagships\\logwise",
+      "cohort": "flagships",
+      "substrate": "perl",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mailforge",
+      "path": "C:\\limitless\\flagships\\mailforge",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mainframe",
+      "path": "C:\\limitless\\flagships\\mainframe",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mandate",
+      "path": "C:\\limitless\\flagships\\mandate",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "masonry",
+      "path": "C:\\limitless\\flagships\\masonry",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "memoria",
+      "path": "C:\\limitless\\flagships\\memoria",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "meridian",
+      "path": "C:\\limitless\\flagships\\meridian",
+      "cohort": "flagships",
+      "substrate": "perl",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mesh",
+      "path": "C:\\limitless\\flagships\\mesh",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "messenger",
+      "path": "C:\\limitless\\flagships\\messenger",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "meta-forge",
+      "path": "C:\\limitless\\flagships\\meta-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mirror",
+      "path": "C:\\limitless\\flagships\\mirror",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mission-control",
+      "path": "C:\\limitless\\flagships\\mission-control",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mojo-forge",
+      "path": "C:\\limitless\\flagships\\mojo-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "moneycheck",
+      "path": "C:\\limitless\\flagships\\moneycheck",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "morse-forge",
+      "path": "C:\\limitless\\flagships\\morse-forge",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mortgageguard",
+      "path": "C:\\limitless\\flagships\\mortgageguard",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mote",
+      "path": "C:\\limitless\\flagships\\mote",
+      "cohort": "flagships",
+      "substrate": "zig",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "move-forge",
+      "path": "C:\\limitless\\flagships\\move-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "murmur",
+      "path": "C:\\limitless\\flagships\\murmur",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "narrator",
+      "path": "C:\\limitless\\flagships\\narrator",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "navigator",
+      "path": "C:\\limitless\\flagships\\navigator",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "needle",
+      "path": "C:\\limitless\\flagships\\needle",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "netwatch",
+      "path": "C:\\limitless\\flagships\\netwatch",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "neuralforge",
+      "path": "C:\\limitless\\flagships\\neuralforge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "nexus-mobile",
+      "path": "C:\\limitless\\flagships\\nexus-mobile",
+      "cohort": "flagships",
+      "substrate": "kotlin",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "nomad",
+      "path": "C:\\limitless\\flagships\\nomad",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "npcmind",
+      "path": "C:\\limitless\\flagships\\npcmind",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "objc-forge",
+      "path": "C:\\limitless\\flagships\\objc-forge",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "odds-engine",
+      "path": "C:\\limitless\\flagships\\odds-engine",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "odin-forge",
+      "path": "C:\\limitless\\flagships\\odin-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "ofgemwatch",
+      "path": "C:\\limitless\\flagships\\ofgemwatch",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "omegle-forge",
+      "path": "C:\\limitless\\flagships\\omegle-forge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "oracle-cache",
+      "path": "C:\\limitless\\flagships\\oracle-cache",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "oracle-vote",
+      "path": "C:\\limitless\\flagships\\oracle-vote",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "ouroboros",
+      "path": "C:\\limitless\\flagships\\ouroboros",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "outlier",
+      "path": "C:\\limitless\\flagships\\outlier",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "outpost",
+      "path": "C:\\limitless\\flagships\\outpost",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "palate",
+      "path": "C:\\limitless\\flagships\\palate",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "parallax-shader",
+      "path": "C:\\limitless\\flagships\\parallax-shader",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "parcel",
+      "path": "C:\\limitless\\flagships\\parcel",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "patina",
+      "path": "C:\\limitless\\flagships\\patina",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "phantasm",
+      "path": "C:\\limitless\\flagships\\phantasm",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "piet-forge",
+      "path": "C:\\limitless\\flagships\\piet-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pigeonhole",
+      "path": "C:\\limitless\\flagships\\pigeonhole",
+      "cohort": "flagships",
+      "substrate": "kotlin",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pipeline",
+      "path": "C:\\limitless\\flagships\\pipeline",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pistachio",
+      "path": "C:\\limitless\\flagships\\pistachio",
+      "cohort": "flagships",
+      "substrate": "cpp",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pixel",
+      "path": "C:\\limitless\\flagships\\pixel",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "plain",
+      "path": "C:\\limitless\\flagships\\plain",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "polyglot",
+      "path": "C:\\limitless\\flagships\\polyglot",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "precedent",
+      "path": "C:\\limitless\\flagships\\precedent",
+      "cohort": "flagships",
+      "substrate": "perl",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "prescient",
+      "path": "C:\\limitless\\flagships\\prescient",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "prism",
+      "path": "C:\\limitless\\flagships\\prism",
+      "cohort": "flagships",
+      "substrate": "scala",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "prism-mobile",
+      "path": "C:\\limitless\\flagships\\prism-mobile",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "proof",
+      "path": "C:\\limitless\\flagships\\proof",
+      "cohort": "flagships",
+      "substrate": "haskell",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "prospector",
+      "path": "C:\\limitless\\flagships\\prospector",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "provenance",
+      "path": "C:\\limitless\\flagships\\provenance",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pulse-net",
+      "path": "C:\\limitless\\flagships\\pulse-net",
+      "cohort": "flagships",
+      "substrate": "zig",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pulse-watch",
+      "path": "C:\\limitless\\flagships\\pulse-watch",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pushforge",
+      "path": "C:\\limitless\\flagships\\pushforge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "quarry-db",
+      "path": "C:\\limitless\\flagships\\quarry-db",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "rampart",
+      "path": "C:\\limitless\\flagships\\rampart",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "recruiter",
+      "path": "C:\\limitless\\flagships\\recruiter",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "region",
+      "path": "C:\\limitless\\flagships\\region",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "relic",
+      "path": "C:\\limitless\\flagships\\relic",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "relic-insurance",
+      "path": "C:\\limitless\\flagships\\relic-insurance",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "reproducible",
+      "path": "C:\\limitless\\flagships\\reproducible",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "ricochet",
+      "path": "C:\\limitless\\flagships\\ricochet",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "roc-forge",
+      "path": "C:\\limitless\\flagships\\roc-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "rollup",
+      "path": "C:\\limitless\\flagships\\rollup",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "rootwork",
+      "path": "C:\\limitless\\flagships\\rootwork",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "rosetta",
+      "path": "C:\\limitless\\flagships\\rosetta",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "routewise",
+      "path": "C:\\limitless\\flagships\\routewise",
+      "cohort": "flagships",
+      "substrate": "java",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "rubberduck",
+      "path": "C:\\limitless\\flagships\\rubberduck",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "rubberduck-deploy-coolify-wt",
+      "path": "C:\\limitless\\flagships\\rubberduck-deploy-coolify-wt",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "rubberduck-landing-wt",
+      "path": "C:\\limitless\\flagships\\rubberduck-landing-wt",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "rubberduck-native",
+      "path": "C:\\limitless\\flagships\\rubberduck-native",
+      "cohort": "flagships",
+      "substrate": "kotlin",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sage",
+      "path": "C:\\limitless\\flagships\\sage",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "schedwise",
+      "path": "C:\\limitless\\flagships\\schedwise",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "scheme-forge",
+      "path": "C:\\limitless\\flagships\\scheme-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "scholar",
+      "path": "C:\\limitless\\flagships\\scholar",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "screenforge",
+      "path": "C:\\limitless\\flagships\\screenforge",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "scribe",
+      "path": "C:\\limitless\\flagships\\scribe",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "scrutiny",
+      "path": "C:\\limitless\\flagships\\scrutiny",
+      "cohort": "flagships",
+      "substrate": "ocaml",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sensorhub",
+      "path": "C:\\limitless\\flagships\\sensorhub",
+      "cohort": "flagships",
+      "substrate": "elixir",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sensorium",
+      "path": "C:\\limitless\\flagships\\sensorium",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sentinel-av",
+      "path": "C:\\limitless\\flagships\\sentinel-av",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sentinel-ids",
+      "path": "C:\\limitless\\flagships\\sentinel-ids",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sentinel-prime",
+      "path": "C:\\limitless\\flagships\\sentinel-prime",
+      "cohort": "flagships",
+      "substrate": "erlang",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sentinel-pro",
+      "path": "C:\\limitless\\flagships\\sentinel-pro",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sentinel-tiny",
+      "path": "C:\\limitless\\flagships\\sentinel-tiny",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sentry",
+      "path": "C:\\limitless\\flagships\\sentry",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sieve",
+      "path": "C:\\limitless\\flagships\\sieve",
+      "cohort": "flagships",
+      "substrate": "zig",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "signal-net",
+      "path": "C:\\limitless\\flagships\\signal-net",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "simulacra",
+      "path": "C:\\limitless\\flagships\\simulacra",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sinew",
+      "path": "C:\\limitless\\flagships\\sinew",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sml-forge",
+      "path": "C:\\limitless\\flagships\\sml-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "smsforge",
+      "path": "C:\\limitless\\flagships\\smsforge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "social-forge",
+      "path": "C:\\limitless\\flagships\\social-forge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sommelier",
+      "path": "C:\\limitless\\flagships\\sommelier",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sonata",
+      "path": "C:\\limitless\\flagships\\sonata",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "spark-iot",
+      "path": "C:\\limitless\\flagships\\spark-iot",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sparql-forge",
+      "path": "C:\\limitless\\flagships\\sparql-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "spellbound",
+      "path": "C:\\limitless\\flagships\\spellbound",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "stack",
+      "path": "C:\\limitless\\flagships\\stack",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "stash",
+      "path": "C:\\limitless\\flagships\\stash",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "strand",
+      "path": "C:\\limitless\\flagships\\strand",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "stratagem",
+      "path": "C:\\limitless\\flagships\\stratagem",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "strict",
+      "path": "C:\\limitless\\flagships\\strict",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "substrate",
+      "path": "C:\\limitless\\flagships\\substrate",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "substrate-lite",
+      "path": "C:\\limitless\\flagships\\substrate-lite",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "superposition",
+      "path": "C:\\limitless\\flagships\\superposition",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "syllabus",
+      "path": "C:\\limitless\\flagships\\syllabus",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "synapse",
+      "path": "C:\\limitless\\flagships\\synapse",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "synapse-lite",
+      "path": "C:\\limitless\\flagships\\synapse-lite",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "tactmind",
+      "path": "C:\\limitless\\flagships\\tactmind",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "talon",
+      "path": "C:\\limitless\\flagships\\talon",
+      "cohort": "flagships",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "tapestry",
+      "path": "C:\\limitless\\flagships\\tapestry",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "tensor",
+      "path": "C:\\limitless\\flagships\\tensor",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "terraform-forge",
+      "path": "C:\\limitless\\flagships\\terraform-forge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "theorem",
+      "path": "C:\\limitless\\flagships\\theorem",
+      "cohort": "flagships",
+      "substrate": "lean",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "throttle",
+      "path": "C:\\limitless\\flagships\\throttle",
+      "cohort": "flagships",
+      "substrate": "elixir",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "ticker",
+      "path": "C:\\limitless\\flagships\\ticker",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "tidepool",
+      "path": "C:\\limitless\\flagships\\tidepool",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "time-forge",
+      "path": "C:\\limitless\\flagships\\time-forge",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "titan",
+      "path": "C:\\limitless\\flagships\\titan",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "torque",
+      "path": "C:\\limitless\\flagships\\torque",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "torrent",
+      "path": "C:\\limitless\\flagships\\torrent",
+      "cohort": "flagships",
+      "substrate": "elixir",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "tower-control",
+      "path": "C:\\limitless\\flagships\\tower-control",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "traffic",
+      "path": "C:\\limitless\\flagships\\traffic",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "translator-live",
+      "path": "C:\\limitless\\flagships\\translator-live",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "trellis",
+      "path": "C:\\limitless\\flagships\\trellis",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "triage",
+      "path": "C:\\limitless\\flagships\\triage",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "triage-hospital",
+      "path": "C:\\limitless\\flagships\\triage-hospital",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "triage-py",
+      "path": "C:\\limitless\\flagships\\triage-py",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "trial-ledger",
+      "path": "C:\\limitless\\flagships\\trial-ledger",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "tribunal",
+      "path": "C:\\limitless\\flagships\\tribunal",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "tunnel",
+      "path": "C:\\limitless\\flagships\\tunnel",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "undertaker",
+      "path": "C:\\limitless\\flagships\\undertaker",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "underwrite",
+      "path": "C:\\limitless\\flagships\\underwrite",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "unison-forge",
+      "path": "C:\\limitless\\flagships\\unison-forge",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "velocity",
+      "path": "C:\\limitless\\flagships\\velocity",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "verdant",
+      "path": "C:\\limitless\\flagships\\verdant",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "verdict",
+      "path": "C:\\limitless\\flagships\\verdict",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "viewtube",
+      "path": "C:\\limitless\\flagships\\viewtube",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "vigil",
+      "path": "C:\\limitless\\flagships\\vigil",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "voiceforge",
+      "path": "C:\\limitless\\flagships\\voiceforge",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "void",
+      "path": "C:\\limitless\\flagships\\void",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "wargames",
+      "path": "C:\\limitless\\flagships\\wargames",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "watchtower",
+      "path": "C:\\limitless\\flagships\\watchtower",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "watchtower-beta",
+      "path": "C:\\limitless\\flagships\\watchtower-beta",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "wayfare",
+      "path": "C:\\limitless\\flagships\\wayfare",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "wayfinder",
+      "path": "C:\\limitless\\flagships\\wayfinder",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "weathervane",
+      "path": "C:\\limitless\\flagships\\weathervane",
+      "cohort": "flagships",
+      "substrate": "python",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "weave",
+      "path": "C:\\limitless\\flagships\\weave",
+      "cohort": "flagships",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "whisper",
+      "path": "C:\\limitless\\flagships\\whisper",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "wire",
+      "path": "C:\\limitless\\flagships\\wire",
+      "cohort": "flagships",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "witness",
+      "path": "C:\\limitless\\flagships\\witness",
+      "cohort": "flagships",
+      "substrate": "rust",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "wolfram-forge",
+      "path": "C:\\limitless\\flagships\\wolfram-forge",
+      "cohort": "flagships",
+      "substrate": "unknown",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "zenith",
+      "path": "C:\\limitless\\flagships\\zenith",
+      "cohort": "flagships",
+      "substrate": "fortran",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "aicore",
+      "path": "C:\\limitless\\foundation\\aicore",
+      "cohort": "foundation",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "knowledge",
+      "path": "C:\\limitless\\foundation\\knowledge",
+      "cohort": "foundation",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pkg",
+      "path": "C:\\limitless\\foundation\\pkg",
+      "cohort": "foundation",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "reality",
+      "path": "C:\\limitless\\foundation\\reality",
+      "cohort": "foundation",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "chronicle",
+      "path": "C:\\limitless\\infrastructure\\chronicle",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "codex",
+      "path": "C:\\limitless\\infrastructure\\codex",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "conduit",
+      "path": "C:\\limitless\\infrastructure\\conduit",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "corroboration",
+      "path": "C:\\limitless\\infrastructure\\corroboration",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "crucible-bridge",
+      "path": "C:\\limitless\\infrastructure\\crucible-bridge",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "delve",
+      "path": "C:\\limitless\\infrastructure\\delve",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "escape-service",
+      "path": "C:\\limitless\\infrastructure\\escape-service",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "forge-central",
+      "path": "C:\\limitless\\infrastructure\\forge-central",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "forge-registry",
+      "path": "C:\\limitless\\infrastructure\\forge-registry",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "gauntlet",
+      "path": "C:\\limitless\\infrastructure\\gauntlet",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "grounded",
+      "path": "C:\\limitless\\infrastructure\\grounded",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "ingest",
+      "path": "C:\\limitless\\infrastructure\\ingest",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "kiln",
+      "path": "C:\\limitless\\infrastructure\\kiln",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "limitless-c-crypto",
+      "path": "C:\\limitless\\infrastructure\\limitless-c-crypto",
+      "cohort": "infrastructure",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "lore",
+      "path": "C:\\limitless\\infrastructure\\lore",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "membrane-service",
+      "path": "C:\\limitless\\infrastructure\\membrane-service",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "mint",
+      "path": "C:\\limitless\\infrastructure\\mint",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "muse",
+      "path": "C:\\limitless\\infrastructure\\muse",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "nexus",
+      "path": "C:\\limitless\\infrastructure\\nexus",
+      "cohort": "infrastructure",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "nexus-backups",
+      "path": "C:\\limitless\\infrastructure\\nexus-backups",
+      "cohort": "infrastructure",
+      "substrate": "c",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "pennant",
+      "path": "C:\\limitless\\infrastructure\\pennant",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "phantom",
+      "path": "C:\\limitless\\infrastructure\\phantom",
+      "cohort": "infrastructure",
+      "substrate": "typescript",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "piper",
+      "path": "C:\\limitless\\infrastructure\\piper",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "recall",
+      "path": "C:\\limitless\\infrastructure\\recall",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "reservoir",
+      "path": "C:\\limitless\\infrastructure\\reservoir",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "schema",
+      "path": "C:\\limitless\\infrastructure\\schema",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "sentinel",
+      "path": "C:\\limitless\\infrastructure\\sentinel",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "shadow-service",
+      "path": "C:\\limitless\\infrastructure\\shadow-service",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": false,
+        "kat1_hex_pinned": false,
+        "wire_format_prefix_ok": false,
+        "has_loud_once_wiring": false,
+        "has_is_stale_predicate": false,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "shuttle",
+      "path": "C:\\limitless\\infrastructure\\shuttle",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "spyglass",
+      "path": "C:\\limitless\\infrastructure\\spyglass",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "switchyard",
+      "path": "C:\\limitless\\infrastructure\\switchyard",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": true,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "toolforge-service",
+      "path": "C:\\limitless\\infrastructure\\toolforge-service",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    },
+    {
+      "name": "vault",
+      "path": "C:\\limitless\\infrastructure\\vault",
+      "cohort": "infrastructure",
+      "substrate": "go",
+      "markers": {
+        "has_mirrormark_pkg": true,
+        "kat1_hex_pinned": true,
+        "wire_format_prefix_ok": true,
+        "has_loud_once_wiring": true,
+        "has_is_stale_predicate": true,
+        "has_liability_footer": false,
+        "uses_foundation_pkg": false
+      }
+    }
+  ]
+}
