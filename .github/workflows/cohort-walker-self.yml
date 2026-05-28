@@ -1,0 +1,51 @@
+name: cohort-walker self-application
+
+# Self-applied pre-merge gate for cohort-walker. Every PR + push to
+# main runs the walker binary against itself: build from source +
+# KAT-1 self-check (re-derives the R151 hex pin), then uploads the
+# binary as a build artefact. This is the customer-verifiable receipt
+# that the audit binary itself audits cleanly.
+#
+# Why not run a full ecosystem scan here? The ecosystem repos aren't
+# checked out in this workflow — cohort-walker scans live cohorts on
+# operator machines / dedicated scan runners. The value of this gate
+# is verifying the binary builds + KAT-1 self-check holds on every
+# commit, which is the irreducible prerequisite for any downstream
+# scan to be trustworthy.
+#
+# Exit-code semantics (mirror lore-mark-verify + cohort-map):
+#   0 OK · 5 KAT-1 drift · 6 usage · 9 internal error
+#
+# Strategic moat: this is the #1 ranked outcome from the I37 marathon
+# brainstorm — cohort-walker pre-merge gate turns R155 audit from
+# post-hoc sweep into a public CI badge a regulator can verify.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build cohort-walker
+        run: go build -o cohort-walker ./cmd/cohort-walker
+
+      - name: Kat-1 self-check
+        run: ./cohort-walker kat-1-check
+
+      - name: Build artefact uploaded
+        uses: actions/upload-artifact@v4
+        with:
+          name: cohort-walker-binary
+          path: cohort-walker
