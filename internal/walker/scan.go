@@ -153,6 +153,24 @@ type Snapshot struct {
 // shape changes incompatibly.
 const SchemaVersion = "cohort-walker.v1"
 
+// scanFileCap and scanDepthCap bound the per-member source-tree walks so a
+// pathologically large or deep member cannot make the scan run unbounded
+// (the package doc and scanMember's comment both promise the walk stays
+// cheap; see scanMember). These caps are deliberately generous — far larger
+// than any real cohort member — so they are a no-op for every honest member:
+// presence-bit detection is monotone OR accumulation and a single bit is
+// enough (see package doc), so the only behaviour a cap can change is failing
+// to add a LATE bit on a >scanFileCap-file member, which no real member is.
+const (
+	// scanFileCap bounds the number of files read across detectSubstrate /
+	// inferFromSourceExtensions / probeMarkers per member.
+	scanFileCap = 4000
+	// scanDepthCap bounds directory descent (separator count from member
+	// root) for the marker probe. detectSubstrate/inferFromSourceExtensions
+	// already cap at 2/3 respectively.
+	scanDepthCap = 6
+)
+
 // CanonicalKAT1Hex is the byte-equality anchor a cohort member must pin.
 const CanonicalKAT1Hex = "239a7d0d3f1bbe3a98aede01e2ad818c2db60b7177c02e2f015035b2b5b7dbca"
 
@@ -258,6 +276,7 @@ func scanMember(name, path, cohort string, opts ScanOptions) (Member, error) {
 func detectSubstrate(path string) Substrate {
 	best := SubstrateUnknown
 	bestPriority := -1
+	filesSeen := 0
 
 	walkErr := filepath.WalkDir(path, func(p string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -276,6 +295,12 @@ func detectSubstrate(path string) Substrate {
 			}
 			return nil
 		}
+		// Cap total files examined so an enormous member cannot run
+		// unbounded. scanFileCap >> any real member, so no-op in practice.
+		if filesSeen >= scanFileCap {
+			return filepath.SkipAll
+		}
+		filesSeen++
 		base := filepath.Base(p)
 		for _, det := range substrateDetectors {
 			if base == det.file && det.priority > bestPriority {
@@ -302,6 +327,7 @@ func detectSubstrate(path string) Substrate {
 // manifest file was found.
 func inferFromSourceExtensions(path string) Substrate {
 	counts := map[Substrate]int{}
+	filesSeen := 0
 	_ = filepath.WalkDir(path, func(p string, d fs.DirEntry, err error) error {
 		if err != nil || d.IsDir() {
 			return nil
@@ -310,6 +336,12 @@ func inferFromSourceExtensions(path string) Substrate {
 		if strings.Count(rel, string(filepath.Separator)) > 3 {
 			return nil
 		}
+		// Cap total files examined so an enormous member cannot run
+		// unbounded. scanFileCap >> any real member, so no-op in practice.
+		if filesSeen >= scanFileCap {
+			return filepath.SkipAll
+		}
+		filesSeen++
 		switch filepath.Ext(p) {
 		case ".go":
 			counts[SubstrateGo]++
@@ -393,6 +425,7 @@ func inferFromSourceExtensions(path string) Substrate {
 // path and looks for the 7 invariant markers.
 func probeMarkers(path string, maxBytes int64) Markers {
 	var m Markers
+	filesRead := 0
 
 	_ = filepath.WalkDir(path, func(p string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -403,6 +436,12 @@ func probeMarkers(path string, maxBytes int64) Markers {
 			if n == "node_modules" || n == "target" || n == ".git" || n == "build" || n == "dist" || n == "vendor" {
 				return filepath.SkipDir
 			}
+			// Cap descent so a pathologically deep member cannot run
+			// unbounded. Depth is separator count from the member root.
+			rel, _ := filepath.Rel(path, p)
+			if strings.Count(rel, string(filepath.Separator)) > scanDepthCap {
+				return filepath.SkipDir
+			}
 			return nil
 		}
 		// Cap by file extension so we do not read binary blobs.
@@ -410,6 +449,14 @@ func probeMarkers(path string, maxBytes int64) Markers {
 		if !isSourceExt(ext) && !isMarkerCandidateName(filepath.Base(p)) {
 			return nil
 		}
+		// Cap total files read so an enormous member cannot run unbounded.
+		// scanFileCap >> any real member, so this never trims an honest
+		// scan; presence bits are monotone so a missed late bit is the only
+		// possible effect (acceptable per the package doc).
+		if filesRead >= scanFileCap {
+			return filepath.SkipAll
+		}
+		filesRead++
 		probeFile(p, maxBytes, &m)
 		return nil
 	})

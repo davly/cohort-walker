@@ -6,6 +6,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -28,7 +29,7 @@ import (
 // pinned hex constant in cohort/identity. Any drift fails the build.
 func TestKAT1Recompute_HMACByteEquality(t *testing.T) {
 	h := hmac.New(sha256.New, nil) // empty key, per KAT-1
-	h.Write([]byte{0x01})           // domain tag
+	h.Write([]byte{0x01})          // domain tag
 	var zero [32]byte
 	h.Write(zero[:]) // 32 NUL corpus
 	digest := h.Sum(nil)
@@ -48,8 +49,8 @@ func TestKAT1Recompute_MatchesScanCanonical(t *testing.T) {
 
 func TestSubstrateDetection_GoModule(t *testing.T) {
 	tmp := mkTempMember(t, map[string]string{
-		"go.mod":     "module example.com/foo\n\ngo 1.22\n",
-		"main.go":    "package main\nfunc main() {}\n",
+		"go.mod":  "module example.com/foo\n\ngo 1.22\n",
+		"main.go": "package main\nfunc main() {}\n",
 	})
 	if got := detectSubstrate(tmp); got != SubstrateGo {
 		t.Fatalf("want Go, got %v", got)
@@ -58,8 +59,8 @@ func TestSubstrateDetection_GoModule(t *testing.T) {
 
 func TestSubstrateDetection_RustCargo(t *testing.T) {
 	tmp := mkTempMember(t, map[string]string{
-		"Cargo.toml":  "[package]\nname = \"foo\"\nversion = \"0.1.0\"\nedition = \"2021\"\n",
-		"src/lib.rs":  "pub fn add() {}\n",
+		"Cargo.toml": "[package]\nname = \"foo\"\nversion = \"0.1.0\"\nedition = \"2021\"\n",
+		"src/lib.rs": "pub fn add() {}\n",
 	})
 	if got := detectSubstrate(tmp); got != SubstrateRust {
 		t.Fatalf("want Rust, got %v", got)
@@ -68,7 +69,7 @@ func TestSubstrateDetection_RustCargo(t *testing.T) {
 
 func TestSubstrateDetection_PythonPyproject(t *testing.T) {
 	tmp := mkTempMember(t, map[string]string{
-		"pyproject.toml": "[project]\nname = \"foo\"\n",
+		"pyproject.toml":  "[project]\nname = \"foo\"\n",
 		"foo/__init__.py": "",
 	})
 	if got := detectSubstrate(tmp); got != SubstratePython {
@@ -201,9 +202,9 @@ func TestMarkers_KAT1NotConfusedWithSuffix(t *testing.T) {
 
 func TestIndexLie_RustModWithoutFile(t *testing.T) {
 	tmp := mkTempMember(t, map[string]string{
-		"src/lib.rs": "pub mod ghost;\npub mod real;\n",
+		"src/lib.rs":  "pub mod ghost;\npub mod real;\n",
 		"src/real.rs": "pub fn ok() {}\n",
-		"Cargo.toml": "[package]\nname=\"f\"\nversion=\"0\"\nedition=\"2021\"\n",
+		"Cargo.toml":  "[package]\nname=\"f\"\nversion=\"0\"\nedition=\"2021\"\n",
 	})
 	lies := detectRustModLies(tmp)
 	found := false
@@ -252,15 +253,96 @@ func TestIndexLie_GoDocAgreement(t *testing.T) {
 
 // --- end-to-end Scan --------------------------------------------------------
 
+// TestScan_EmptyRoots_NoMembers is HERMETIC: it passes a single empty
+// t.TempDir root so Scan never falls through to DefaultRoots and never walks
+// the live filesystem. (The prior version passed Roots:[]string{}, which made
+// Scan substitute the real DefaultRoots — C:\limitless\flagships etc. — and
+// filepath.WalkDir the entire live ecosystem tree; with no walk cap that hung
+// until the test timeout. See TestScan_EmptyRoots_SubstitutesDefaultRoots for
+// the substitution behaviour, asserted WITHOUT walking the live tree.)
 func TestScan_EmptyRoots_NoMembers(t *testing.T) {
-	snap, err := Scan(ScanOptions{Roots: []string{}, Now: fixedTime()})
+	emptyRoot := t.TempDir()
+	snap, err := Scan(ScanOptions{Roots: []string{emptyRoot}, Now: fixedTime()})
 	if err != nil {
 		t.Fatal(err)
 	}
-	// Default roots may or may not exist on the test runner — but we
-	// always get a snapshot back.
 	if snap.SchemaVersion != SchemaVersion {
 		t.Fatalf("schema version mismatch: %s", snap.SchemaVersion)
+	}
+	if len(snap.Members) != 0 {
+		t.Fatalf("empty root should yield no members, got %d", len(snap.Members))
+	}
+}
+
+// TestScan_EmptyRoots_SubstitutesDefaultRoots asserts the documented fallback
+// (len(Roots)==0 -> DefaultRoots) WITHOUT walking the live tree: it inspects
+// the returned snapshot's Roots field, which Scan records before any walk.
+func TestScan_EmptyRoots_SubstitutesDefaultRoots(t *testing.T) {
+	// Use a bogus DefaultRoots-shaped path that does not exist so os.ReadDir
+	// returns fs.ErrNotExist and Scan skips it -- no walk happens.
+	bogus := filepath.Join(t.TempDir(), "does-not-exist-flagships")
+	saved := DefaultRoots
+	DefaultRoots = []string{bogus}
+	t.Cleanup(func() { DefaultRoots = saved })
+
+	snap, err := Scan(ScanOptions{Roots: nil, Now: fixedTime()})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(snap.Roots) != 1 || snap.Roots[0] != bogus {
+		t.Fatalf("empty Roots should substitute DefaultRoots; got %v", snap.Roots)
+	}
+	if len(snap.Members) != 0 {
+		t.Fatalf("non-existent default root should yield no members, got %d", len(snap.Members))
+	}
+}
+
+// TestProbeMarkers_DepthCap asserts the walk does NOT descend past
+// scanDepthCap. A marker planted BELOW the cap must be invisible; the same
+// marker at/above the cap must be found. This discriminates the depth cap:
+// reverting it (probeMarkers walking unbounded depth) makes the deep marker
+// visible and fails the "deep marker invisible" assertion.
+func TestProbeMarkers_DepthCap(t *testing.T) {
+	// Build a path nested deeper than scanDepthCap separators from root.
+	deep := strings.Repeat("d/", scanDepthCap+2) // > scanDepthCap separators
+	tmp := mkTempMember(t, map[string]string{
+		deep + "buried.go": "// KAT " + CanonicalKAT1Hex + "\n",
+	})
+	m := probeMarkers(tmp, 1<<20)
+	if m.KAT1HexPinned {
+		t.Fatalf("marker buried below scanDepthCap should NOT be read; got %+v", m)
+	}
+
+	// Sanity: the SAME marker at shallow depth IS found (cap is not a blanket
+	// disable).
+	shallow := mkTempMember(t, map[string]string{
+		"shallow.go": "// KAT " + CanonicalKAT1Hex + "\n",
+	})
+	if m2 := probeMarkers(shallow, 1<<20); !m2.KAT1HexPinned {
+		t.Fatalf("shallow marker should be read; got %+v", m2)
+	}
+}
+
+// TestProbeMarkers_FileCapTerminates asserts the file-count cap bounds the
+// number of files read. It plants scanFileCap "decoy" source files (sorted
+// before) plus one marker file whose name sorts AFTER all decoys, so the cap
+// is exhausted before the marker is reached. With the cap removed (prod
+// reverted), the marker would be read and KAT1HexPinned would be true.
+func TestProbeMarkers_FileCapTerminates(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping file-cap test in -short mode")
+	}
+	files := make(map[string]string, scanFileCap+1)
+	for i := 0; i < scanFileCap; i++ {
+		// "aaa..." prefix + zero-padded index sorts before the marker.
+		files[fmt.Sprintf("decoy_%06d.go", i)] = "package p\n"
+	}
+	// Marker file name sorts AFTER every decoy.
+	files["zzz_marker.go"] = "// KAT " + CanonicalKAT1Hex + "\n"
+	tmp := mkTempMember(t, files)
+	m := probeMarkers(tmp, 1<<20)
+	if m.KAT1HexPinned {
+		t.Fatalf("file beyond scanFileCap should NOT be read; got %+v", m)
 	}
 }
 
