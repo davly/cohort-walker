@@ -123,6 +123,26 @@ func TestSubstrateDetection_Unknown(t *testing.T) {
 	}
 }
 
+// TestInferSubstrate_TieBreakIsDeterministic (uplift #24, guards #12) plants a
+// member with EXACTLY one .go and one .rs source file and no manifest, forcing
+// a count tie in inferFromSourceExtensions. The result must be the
+// lexicographically-smallest substrate (go < rust) on EVERY call. Before the
+// fix the winner came from Go's randomized map-iteration order, so running the
+// inference many times would (with overwhelming probability) flip at least once
+// — this loop is the discriminator that catches that nondeterminism.
+func TestInferSubstrate_TieBreakIsDeterministic(t *testing.T) {
+	tmp := mkTempMember(t, map[string]string{
+		"one.go": "package p\n",
+		"two.rs": "fn main() {}\n",
+	})
+	const iters = 256
+	for i := 0; i < iters; i++ {
+		if got := inferFromSourceExtensions(tmp); got != SubstrateGo {
+			t.Fatalf("iteration %d: count tie must resolve to SubstrateGo (lexicographically smallest); got %v", i, got)
+		}
+	}
+}
+
 // --- marker probes ----------------------------------------------------------
 
 func TestMarkers_AllSevenPresent(t *testing.T) {
