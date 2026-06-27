@@ -1,6 +1,9 @@
 # Build artefacts
-cohort-walker
-cohort-walker.exe
+# Anchored to the repo root so the line ignores ONLY the built binary,
+# not the cmd/cohort-walker/ source directory (an unanchored "cohort-walker"
+# pattern matches a path component at any depth and would shadow the CLI).
+/cohort-walker
+/cohort-walker.exe
 *.test
 *.out
 
