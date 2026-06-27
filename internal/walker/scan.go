@@ -412,10 +412,22 @@ func inferFromSourceExtensions(path string) Substrate {
 	})
 	best := SubstrateUnknown
 	bestN := 0
-	for s, n := range counts {
-		if n > bestN {
+	// Deterministic selection: iterate substrates in lexicographic order
+	// rather than over the map directly. Ranging a Go map is randomized, so
+	// a COUNT TIE between two substrates (e.g. one .go file and one .rs file)
+	// would otherwise let the inferred substrate flip between byte-identical
+	// scans, producing a phantom `substrate_changed` delta in the diff. With
+	// a sorted walk and a strict `>`, a tie resolves to the lexicographically
+	// smallest substrate, stably, every run.
+	subs := make([]Substrate, 0, len(counts))
+	for s := range counts {
+		subs = append(subs, s)
+	}
+	sort.Slice(subs, func(i, j int) bool { return subs[i] < subs[j] })
+	for _, s := range subs {
+		if counts[s] > bestN {
 			best = s
-			bestN = n
+			bestN = counts[s]
 		}
 	}
 	return best

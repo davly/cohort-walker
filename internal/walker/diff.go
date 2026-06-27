@@ -33,13 +33,13 @@ const (
 
 // Delta is a single row in the drift report.
 type Delta struct {
-	Member    string   `json:"member"`
-	Cohort    string   `json:"cohort"`
-	Kind      DeltaKind `json:"kind"`
-	Severity  Severity `json:"severity"`
-	Detail    string   `json:"detail"`
-	WasValue  string   `json:"was,omitempty"`
-	NowValue  string   `json:"now,omitempty"`
+	Member   string    `json:"member"`
+	Cohort   string    `json:"cohort"`
+	Kind     DeltaKind `json:"kind"`
+	Severity Severity  `json:"severity"`
+	Detail   string    `json:"detail"`
+	WasValue string    `json:"was,omitempty"`
+	NowValue string    `json:"now,omitempty"`
 }
 
 // DeltaKind enumerates every classified drift kind. Adding a new kind
@@ -47,16 +47,16 @@ type Delta struct {
 type DeltaKind string
 
 const (
-	DeltaKAT1Lost          DeltaKind = "kat1_lost"
-	DeltaKAT1Gained        DeltaKind = "kat1_gained"
-	DeltaWireFormatDrift   DeltaKind = "wire_format_drift"
-	DeltaIndexLie          DeltaKind = "index_lie"
-	DeltaMissingR174       DeltaKind = "missing_r174_5of5"
-	DeltaNewMember         DeltaKind = "new_member"
-	DeltaDroppedMember     DeltaKind = "dropped_member"
-	DeltaSubstrateChanged  DeltaKind = "substrate_changed"
-	DeltaMarkerLost        DeltaKind = "marker_lost"
-	DeltaMarkerGained      DeltaKind = "marker_gained"
+	DeltaKAT1Lost         DeltaKind = "kat1_lost"
+	DeltaKAT1Gained       DeltaKind = "kat1_gained"
+	DeltaWireFormatDrift  DeltaKind = "wire_format_drift"
+	DeltaIndexLie         DeltaKind = "index_lie"
+	DeltaMissingR174      DeltaKind = "missing_r174_5of5"
+	DeltaNewMember        DeltaKind = "new_member"
+	DeltaDroppedMember    DeltaKind = "dropped_member"
+	DeltaSubstrateChanged DeltaKind = "substrate_changed"
+	DeltaMarkerLost       DeltaKind = "marker_lost"
+	DeltaMarkerGained     DeltaKind = "marker_gained"
 )
 
 // DiffReport is the full classified drift between two snapshots.
@@ -143,6 +143,14 @@ func Diff(prev, cur *Snapshot) *DiffReport {
 		if report.Deltas[i].Member != report.Deltas[j].Member {
 			return report.Deltas[i].Member < report.Deltas[j].Member
 		}
+		// Cohort tie-break: two members can share a name across cohorts
+		// (e.g. "alpha" in both flagships and engines). Without Cohort in the
+		// sort key such pairs tie on (severity, member, kind) and SliceStable
+		// falls back to the randomized map-iteration order they were appended
+		// in, making the report nondeterministic. Cohort makes the order total.
+		if report.Deltas[i].Cohort != report.Deltas[j].Cohort {
+			return report.Deltas[i].Cohort < report.Deltas[j].Cohort
+		}
 		return string(report.Deltas[i].Kind) < string(report.Deltas[j].Kind)
 	})
 
@@ -170,7 +178,7 @@ func classifyDelta(was, now Member, into *[]Delta) {
 		*into = append(*into, Delta{
 			Member: now.Name, Cohort: now.Cohort,
 			Kind: DeltaSubstrateChanged, Severity: SeverityWarn,
-			Detail:  "substrate language changed",
+			Detail:   "substrate language changed",
 			WasValue: string(was.Substrate), NowValue: string(now.Substrate),
 		})
 	}
@@ -249,7 +257,7 @@ func classifyAbsoluteIfNew(was, now Member, into *[]Delta) {
 		*into = append(*into, Delta{
 			Member: now.Name, Cohort: now.Cohort,
 			Kind: DeltaWireFormatDrift, Severity: SeverityFail,
-			Detail:  "wire-format drift introduced: " + now.Markers.WireFormatPrefixDrift,
+			Detail:   "wire-format drift introduced: " + now.Markers.WireFormatPrefixDrift,
 			WasValue: was.Markers.WireFormatPrefixDrift,
 			NowValue: now.Markers.WireFormatPrefixDrift,
 		})
