@@ -251,6 +251,35 @@ func TestIndexLie_GoDocAgreement(t *testing.T) {
 	}
 }
 
+// TestIndexLie_GoDocReadIsCapped asserts detectGoDocLies caps its per-file
+// read at 1 MiB. A doc.go with >1 MiB of leading filler followed by a
+// mismatched `// Package` declaration must NOT be flagged, because the
+// declaration sits beyond the cap and is never read. With the prior
+// unbounded os.ReadFile the whole file would be read and the lie WOULD be
+// flagged — so this is the fail-before/pass-after discriminator for the cap.
+func TestIndexLie_GoDocReadIsCapped(t *testing.T) {
+	// >1 MiB of comment filler that contains no "// Package " substring,
+	// then the mismatched declaration. dirName is "sub", decl says "wrong".
+	filler := strings.Repeat("// filler line padding\n", 60000) // ~1.3 MiB
+	body := filler + "// Package wrong declares a name that mismatches the dir.\npackage wrong\n"
+	tmp := mkTempMember(t, map[string]string{
+		"sub/doc.go": body,
+	})
+	lies := detectGoDocLies(tmp)
+	if len(lies) != 0 {
+		t.Fatalf("declaration beyond the 1 MiB read cap must not be read; got %v", lies)
+	}
+
+	// Sanity: the SAME mismatch within the cap IS still flagged (cap is not a
+	// blanket disable).
+	near := mkTempMember(t, map[string]string{
+		"sub/doc.go": "// Package wrong mismatches the dir.\npackage wrong\n",
+	})
+	if got := detectGoDocLies(near); len(got) == 0 {
+		t.Fatalf("in-cap mismatch should still be flagged; got none")
+	}
+}
+
 // --- end-to-end Scan --------------------------------------------------------
 
 // TestScan_EmptyRoots_NoMembers is HERMETIC: it passes a single empty

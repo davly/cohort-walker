@@ -4,13 +4,13 @@
 // member by substrate language, and probes for the seven invariant
 // markers a fully-onboarded R174 5-of-5 cohort member should expose:
 //
-//	1. mirrormark package or equivalent file presence
-//	2. KAT-1 hex byte-identity pin (R151)
-//	3. L43 wire-format prefix `lore@v1:` literal
-//	4. R143 LoudOnce wiring (loud-warn / fire_*_once style)
-//	5. R150 IsStale predicate
-//	6. R166 LIABILITY_FOOTER constant
-//	7. foundation/pkg/* thin-shim usage (Go canonical only)
+//  1. mirrormark package or equivalent file presence
+//  2. KAT-1 hex byte-identity pin (R151)
+//  3. L43 wire-format prefix `lore@v1:` literal
+//  4. R143 LoudOnce wiring (loud-warn / fire_*_once style)
+//  5. R150 IsStale predicate
+//  6. R166 LIABILITY_FOOTER constant
+//  7. foundation/pkg/* thin-shim usage (Go canonical only)
 //
 // The scan is pure-stdlib and intentionally cheap: a substring grep on
 // the first ~1MB of each candidate file. False-positives are acceptable
@@ -672,10 +672,17 @@ func detectGoDocLies(path string) []string {
 		if strings.Count(rel, string(filepath.Separator)) > 3 {
 			return nil
 		}
-		body, err := os.ReadFile(p)
+		f, err := os.Open(p)
 		if err != nil {
 			return nil
 		}
+		// Cap the read at 1 MiB, matching the guard pattern in
+		// detectRustModLies (io.LimitReader(f, 1<<20)). os.ReadFile was
+		// unbounded — a pathologically large doc.go could pull the whole
+		// file into memory; the `// Package` declaration is always in the
+		// first bytes, so the cap never changes an honest verdict.
+		body, _ := io.ReadAll(io.LimitReader(f, 1<<20))
+		f.Close()
 		// Look for: "// Package foo" where foo != filepath.Base(filepath.Dir(p))
 		dirName := filepath.Base(filepath.Dir(p))
 		s := string(body)
