@@ -13,12 +13,15 @@ import (
 )
 
 // Stable CI exit codes. CHANGING THESE BREAKS DOWNSTREAM AUTOMATION.
+// Numbering mirrors lore-mark-verify + cohort-map (see README "Exit codes").
 const (
-	ExitOK           = 0
-	ExitDriftFail    = 1
-	ExitDriftWarn    = 2 // only emitted in --strict mode; default treats WARN as OK
+	ExitOK            = 0
+	ExitDriftFail     = 1
+	ExitDriftWarn     = 2 // only emitted in --strict mode; default treats WARN as OK
 	ExitStaleBaseline = 3
-	ExitInternal     = 9
+	ExitKAT1Drift     = 5 // kat-1-check recompute diverged from the pinned anchor
+	ExitUsage         = 6 // bad / missing flag or unknown subcommand
+	ExitInternal      = 9
 )
 
 // CIConfig drives the verify command.
@@ -30,8 +33,8 @@ type CIConfig struct {
 
 // CIResult is the structured output for the JSON ci sub-mode.
 type CIResult struct {
-	ExitCode int     `json:"exit_code"`
-	Summary  Summary `json:"summary"`
+	ExitCode int       `json:"exit_code"`
+	Summary  Summary   `json:"summary"`
 	Audit    audit.Row `json:"audit_row"`
 }
 
