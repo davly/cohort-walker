@@ -61,7 +61,35 @@ cohort-walker kat-1-check
 #    an unchanged tree are byte-identical (for committed snapshots / the
 #    determinism gate). SOURCE_DATE_EPOCH is honored when the flag is omitted.
 cohort-walker scan --no-timestamp --out current.json
+
+# 7. Version contract — print the tool + emitted-JSON schema_version as a single
+#    machine-readable JSON object, then exit 0 (alias: --version / -version).
+cohort-walker version
+# {"tool":"cohort-walker","version":"0.1.0","schema_version":"cohort-walker.v1"}
 ```
+
+## Commands and flags
+
+| Command | Flags | Notes |
+|---|---|---|
+| `scan` | `--out FILE`, `--roots A,B,C`, `--no-timestamp` | walk the roots and write a snapshot (stdout when `--out` is omitted) |
+| `verify` | `--baseline FILE` (required), `--strict`, `--json`, `--roots A,B,C`, `--horizon DUR` | CI gate: scan + diff vs baseline; the staleness firewall + schema guard run first |
+| `report` | `--baseline FILE` (required), `--out FILE`, `--roots A,B,C` | render the human markdown drift report (a render, not a gate) |
+| `diff` | `--baseline FILE` (required), `--current FILE` (required) | machine-readable JSON delta between two existing snapshots |
+| `kat-1-check` | — | re-derive the R151 KAT-1 anchor and confirm the pin holds |
+| `version` | — | print `{tool, version, schema_version}` JSON (alias `--version` / `-version`) |
+| `help` | — | print usage (alias `--help` / `-h`) |
+
+`--roots` is a comma-separated list of cohort roots. When omitted it defaults to
+`$LIMITLESS_ROOT/{flagships,infrastructure,engines,foundation}`, or a
+separator-relative `/limitless/<cohort>` layout when `$LIMITLESS_ROOT` is unset —
+no hardcoded drive letter, so the binary resolves identically on every OS.
+
+`verify --strict` promotes WARN drift to a failure (exit 2); `--horizon`
+overrides the staleness window (a Go duration, e.g. `--horizon 720h`).
+`verify --json` is an output-format toggle only — it emits the structured
+`CIResult` (`exit_code` + `summary` + R154 `audit_row`) instead of the one-line
+human verdict and **never changes the exit code** for the same inputs.
 
 The only wall-clock field in a snapshot is `captured_at`. `--no-timestamp`
 zeroes it (`0001-01-01T00:00:00Z`); otherwise an integer `SOURCE_DATE_EPOCH`
