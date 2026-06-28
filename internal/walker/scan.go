@@ -321,6 +321,23 @@ func scanMember(name, path, cohort string, opts ScanOptions) (Member, error) {
 
 // detectSubstrate inspects manifest filenames and returns the highest-
 // priority match. Walks at most depth 2 from path.
+//
+// Tiebreak semantics (pinned by the TestDetectSubstrate_* tests):
+//
+//   - Higher substrateDetectors.priority always wins, regardless of the order
+//     the files are encountered (e.g. go.mod priority 80 beats a lexically-
+//     earlier Makefile priority 30 → go; tsconfig.json priority 90 upgrades a
+//     package.json priority 70 → typescript).
+//   - On EQUAL priority the result is decided by filepath.WalkDir's traversal
+//     order, which is deterministic: os.ReadDir sorts entries by filename, so
+//     the manifest whose filename sorts FIRST lexically wins (the strict `>`
+//     below keeps the first-seen entry at a given priority). A member shipping
+//     both go.mod and Cargo.toml at top level — both priority 80 — therefore
+//     resolves to rust every run, because "Cargo.toml" < "go.mod".
+//
+// The determinism (not the specific language) is the load-bearing property: a
+// stable verdict run-to-run is what prevents a phantom substrate_changed delta
+// in the diff for a polyglot member.
 func detectSubstrate(path string) Substrate {
 	best := SubstrateUnknown
 	bestPriority := -1

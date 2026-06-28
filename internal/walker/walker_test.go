@@ -143,6 +143,57 @@ func TestInferSubstrate_TieBreakIsDeterministic(t *testing.T) {
 	}
 }
 
+// TestDetectSubstrate_PriorityOverridesFileOrder pins the first tiebreak rule of
+// detectSubstrate: a higher substrateDetectors.priority wins regardless of the
+// order WalkDir encounters the manifests. "Makefile" (priority 30) sorts before
+// "go.mod" (priority 80) lexically, so it is visited first — yet go.mod's higher
+// priority must still win → go. Without priority dominance the lexically-first
+// (weaker) signal would win.
+func TestDetectSubstrate_PriorityOverridesFileOrder(t *testing.T) {
+	tmp := mkTempMember(t, map[string]string{
+		"Makefile": "all:\n\techo hi\n",                 // SubstrateC, priority 30, sorts first
+		"go.mod":   "module example.com/foo\ngo 1.22\n", // SubstrateGo, priority 80
+	})
+	if got := detectSubstrate(tmp); got != SubstrateGo {
+		t.Fatalf("priority must override file order: go.mod (80) must beat Makefile (30); got %v", got)
+	}
+}
+
+// TestDetectSubstrate_TsConfigUpgradesPackageJSON pins the documented upgrade:
+// a member with BOTH package.json (TypeScript, priority 70) and tsconfig.json
+// (TypeScript, priority 90) resolves via the higher-priority tsconfig signal.
+// Both detectors map to typescript, so this proves the priority comparison is
+// exercised across two co-present manifests (not just the source fallback).
+func TestDetectSubstrate_TsConfigUpgradesPackageJSON(t *testing.T) {
+	tmp := mkTempMember(t, map[string]string{
+		"package.json":  `{"name":"foo"}`,
+		"tsconfig.json": `{"compilerOptions":{}}`,
+	})
+	if got := detectSubstrate(tmp); got != SubstrateTypeScript {
+		t.Fatalf("package.json + tsconfig.json must resolve to typescript; got %v", got)
+	}
+}
+
+// TestDetectSubstrate_EqualPriorityTieIsDeterministic pins the second tiebreak
+// rule: when two manifests share the SAME priority (go.mod and Cargo.toml are
+// both 80) the winner is decided by WalkDir's deterministic lexical file order.
+// "Cargo.toml" < "go.mod", so a polyglot member shipping both resolves to rust
+// — and, critically, resolves to the SAME substrate on every call. The stable
+// verdict is what prevents a phantom substrate_changed delta in the diff for a
+// polyglot member (atelier / anchor in the live cohort ship both manifests).
+func TestDetectSubstrate_EqualPriorityTieIsDeterministic(t *testing.T) {
+	tmp := mkTempMember(t, map[string]string{
+		"go.mod":     "module example.com/foo\ngo 1.22\n",
+		"Cargo.toml": "[package]\nname=\"foo\"\nversion=\"0.1.0\"\nedition=\"2021\"\n",
+	})
+	const iters = 256
+	for i := 0; i < iters; i++ {
+		if got := detectSubstrate(tmp); got != SubstrateRust {
+			t.Fatalf("iteration %d: equal-priority tie (go.mod & Cargo.toml, both 80) must resolve deterministically to rust (Cargo.toml sorts first); got %v", i, got)
+		}
+	}
+}
+
 // --- marker probes ----------------------------------------------------------
 
 func TestMarkers_AllSevenPresent(t *testing.T) {
