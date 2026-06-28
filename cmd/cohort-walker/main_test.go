@@ -90,6 +90,37 @@ func TestCLI_Scan_StdoutWhenNoOut(t *testing.T) {
 	}
 }
 
+// TestCLI_Scan_NoTimestamp_ByteIdentical is the det-gate-shaped proof for the
+// B4 uplift: it runs `scan --no-timestamp` over an unchanged fixture TWICE (the
+// same way workshop/scripts/det-gate.sh runs each covered tool) and asserts the
+// two outputs are byte-identical. It also asserts captured_at is suppressed to
+// the zero sentinel, proving the flag is wired through the CLI to walker.Scan.
+func TestCLI_Scan_NoTimestamp_ByteIdentical(t *testing.T) {
+	root := mkRootWithGoMember(t)
+	flagships := filepath.Join(root, "flagships")
+	runScan := func() []byte {
+		t.Helper()
+		var out, errb bytes.Buffer
+		code := run([]string{"scan", "--no-timestamp", "--roots", flagships}, &out, &errb)
+		if code != walker.ExitOK {
+			t.Fatalf("scan --no-timestamp want exit %d, got %d (err=%q)", walker.ExitOK, code, errb.String())
+		}
+		return out.Bytes()
+	}
+	a := runScan()
+	b := runScan()
+	if !bytes.Equal(a, b) {
+		t.Fatalf("scan --no-timestamp must be byte-identical across runs;\n--- a ---\n%s\n--- b ---\n%s", a, b)
+	}
+	snap, err := walker.LoadSnapshot(bytes.NewReader(a))
+	if err != nil {
+		t.Fatalf("snapshot invalid: %v", err)
+	}
+	if !snap.CapturedAt.IsZero() {
+		t.Fatalf("--no-timestamp must zero captured_at; got %v", snap.CapturedAt)
+	}
+}
+
 // TestCLI_Scan_FiresLoudOnceOnDegradation covers the R143 LoudOnce wiring: a
 // docs-only member resolves to substrate=unknown, which must fire exactly one
 // structured stderr warning carrying the audit-rule discriminator.
@@ -170,6 +201,10 @@ func TestCLI_Verify_MissingBaselineFlag_IsUsageError(t *testing.T) {
 // verify the same roots against it. A just-captured baseline is not stale and
 // the tree is unchanged, so the gate passes (exit 0).
 func TestCLI_Verify_FreshBaseline_Exit0(t *testing.T) {
+	// Scan now honors SOURCE_DATE_EPOCH (B4); clear any ambient value so the
+	// freshly-captured baseline uses the wall clock and is genuinely fresh
+	// rather than an epoch-pinned (and thus stale) timestamp.
+	t.Setenv("SOURCE_DATE_EPOCH", "")
 	root := mkRootWithGoMember(t)
 	flagships := filepath.Join(root, "flagships")
 	baseline := filepath.Join(t.TempDir(), "fresh.json")

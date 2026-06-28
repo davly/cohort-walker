@@ -439,6 +439,111 @@ func TestScan_SyntheticRoot(t *testing.T) {
 	}
 }
 
+// TestScan_NoTimestamp_ByteIdentical is the determinism proof for the B4
+// timestamp-suppression uplift (cw-det-timestamp). cohort-walker stamps
+// captured_at from the wall clock, which is the ONLY thing that makes two scans
+// of an unchanged tree differ byte-for-byte — it is precisely why cohort-walker
+// was the one tool excluded from workshop/scripts/det-gate.sh. With NoTimestamp
+// set, two scans over the SAME fixture — even with DIFFERENT injected clocks —
+// must serialise to byte-identical JSON. The "off" half proves the defect is
+// real: WITHOUT suppression the differing clock leaks straight into the output,
+// so the suppression assertion is not vacuous.
+func TestScan_NoTimestamp_ByteIdentical(t *testing.T) {
+	root := t.TempDir()
+	mustWriteDir(t, filepath.Join(root, "alpha"), map[string]string{
+		"go.mod":             "module example.com/alpha\ngo 1.22\n",
+		"mirrormark/mark.go": "package mirrormark\nconst KAT = \"" + CanonicalKAT1Hex + "\"\n",
+	})
+	mustWriteDir(t, filepath.Join(root, "beta"), map[string]string{
+		"Cargo.toml": "[package]\nname=\"beta\"\nversion=\"0\"\nedition=\"2021\"\n",
+		"src/lib.rs": "// no KAT here\n",
+	})
+
+	t1 := time.Date(2026, 5, 28, 11, 0, 0, 0, time.UTC)
+	t2 := time.Date(2026, 6, 1, 9, 30, 0, 0, time.UTC) // a DIFFERENT wall clock
+
+	save := func(opts ScanOptions) []byte {
+		t.Helper()
+		snap, err := Scan(opts)
+		if err != nil {
+			t.Fatal(err)
+		}
+		var buf bytes.Buffer
+		if err := SaveSnapshot(&buf, snap); err != nil {
+			t.Fatal(err)
+		}
+		return buf.Bytes()
+	}
+
+	// Suppression ON: differing clocks must NOT change a single byte.
+	a := save(ScanOptions{Roots: []string{root}, NoTimestamp: true, Now: t1})
+	b := save(ScanOptions{Roots: []string{root}, NoTimestamp: true, Now: t2})
+	if !bytes.Equal(a, b) {
+		t.Fatalf("NoTimestamp scans must be byte-identical across clocks;\n--- run1 ---\n%s\n--- run2 ---\n%s", a, b)
+	}
+	// captured_at must be suppressed to the zero sentinel (the firewall already
+	// treats a zero captured_at as stale, so a suppressed snapshot can never
+	// masquerade as a fresh freshness baseline).
+	var got Snapshot
+	if err := json.Unmarshal(a, &got); err != nil {
+		t.Fatal(err)
+	}
+	if !got.CapturedAt.IsZero() {
+		t.Fatalf("NoTimestamp must zero captured_at; got %v", got.CapturedAt)
+	}
+
+	// Suppression OFF: the SAME differing clocks DO leak into the output — this
+	// is the defect the flag fixes, and the discriminator that fails if scan
+	// ever stops honoring NoTimestamp.
+	c := save(ScanOptions{Roots: []string{root}, Now: t1})
+	d := save(ScanOptions{Roots: []string{root}, Now: t2})
+	if bytes.Equal(c, d) {
+		t.Fatal("without NoTimestamp, differing clocks must change the output (captured_at leaks); the suppression test would be vacuous otherwise")
+	}
+}
+
+// TestScan_SourceDateEpoch_Honored asserts the reproducible-build convention:
+// with SOURCE_DATE_EPOCH set (and no injected clock and no suppression),
+// captured_at is derived from it, so committed/CI snapshots are deterministic.
+// Mirrors groundtruth/receipt's SOURCE_DATE_EPOCH handling.
+func TestScan_SourceDateEpoch_Honored(t *testing.T) {
+	root := t.TempDir()
+	mustWriteDir(t, filepath.Join(root, "alpha"), map[string]string{
+		"go.mod": "module example.com/alpha\ngo 1.22\n",
+	})
+
+	t.Setenv("SOURCE_DATE_EPOCH", "1136214245") // Go reference time -> 2006-01-02T15:04:05Z
+	want := time.Unix(1136214245, 0).UTC()
+	snap, err := Scan(ScanOptions{Roots: []string{root}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !snap.CapturedAt.Equal(want) {
+		t.Fatalf("SOURCE_DATE_EPOCH not honored: got %v want %v", snap.CapturedAt, want)
+	}
+
+	// An injected clock takes precedence over SOURCE_DATE_EPOCH.
+	inj := fixedTime()
+	snap2, err := Scan(ScanOptions{Roots: []string{root}, Now: inj})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !snap2.CapturedAt.Equal(inj.UTC()) {
+		t.Fatalf("injected Now must beat SOURCE_DATE_EPOCH: got %v want %v", snap2.CapturedAt, inj.UTC())
+	}
+
+	// A set-but-unparseable SOURCE_DATE_EPOCH falls back to the wall clock
+	// (matches groundtruth) — it must NOT crash and must NOT yield the zero time.
+	t.Setenv("SOURCE_DATE_EPOCH", "not-an-int")
+	snap3, err := Scan(ScanOptions{Roots: []string{root}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if snap3.CapturedAt.IsZero() {
+		t.Fatal("bad SOURCE_DATE_EPOCH must fall back to wall-clock, not the zero time")
+	}
+}
+
 // --- Diff -------------------------------------------------------------------
 
 func TestDiff_NoChange_ZeroDeltas(t *testing.T) {

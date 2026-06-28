@@ -26,6 +26,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -181,10 +182,18 @@ const CanonicalWireFormatPrefix = "lore@v1:"
 // ScanOptions configures a scan run.
 type ScanOptions struct {
 	Roots []string  // absolute paths to walk; defaults below if empty
-	Now   time.Time // injected clock; default time.Now().UTC()
+	Now   time.Time // injected clock; wins over SOURCE_DATE_EPOCH and the wall clock
 	// MaxFileBytes caps the per-file read for marker probes. Keeps a
 	// runaway 1GB generated file from blowing memory.
 	MaxFileBytes int64
+	// NoTimestamp suppresses captured_at: it is set to the zero time, which
+	// serialises to the fixed sentinel "0001-01-01T00:00:00Z" so two scans of
+	// an unchanged tree are byte-identical (the prerequisite for adding
+	// cohort-walker to workshop/scripts/det-gate.sh). Mirrors the
+	// receipt / groundtruth -no-timestamp model. The firewall already treats a
+	// zero captured_at as stale, so a suppressed snapshot can never masquerade
+	// as a fresh freshness baseline. SOURCE_DATE_EPOCH is honored otherwise.
+	NoTimestamp bool
 }
 
 // DefaultRoots mirrors the I33 spec.
@@ -200,16 +209,14 @@ func Scan(opts ScanOptions) (*Snapshot, error) {
 	if len(opts.Roots) == 0 {
 		opts.Roots = DefaultRoots
 	}
-	if opts.Now.IsZero() {
-		opts.Now = time.Now().UTC()
-	}
+	capturedAt := resolveCapturedAt(opts)
 	if opts.MaxFileBytes <= 0 {
 		opts.MaxFileBytes = 1 << 20 // 1 MiB per file
 	}
 
 	snap := &Snapshot{
 		SchemaVersion: SchemaVersion,
-		CapturedAt:    opts.Now,
+		CapturedAt:    capturedAt,
 		Roots:         append([]string{}, opts.Roots...),
 	}
 
@@ -231,7 +238,7 @@ func Scan(opts ScanOptions) (*Snapshot, error) {
 			if err != nil {
 				continue // best-effort; skip unreadable members
 			}
-			m.CapturedAt = opts.Now
+			m.CapturedAt = capturedAt
 			snap.Members = append(snap.Members, m)
 		}
 	}
@@ -244,6 +251,47 @@ func Scan(opts ScanOptions) (*Snapshot, error) {
 	})
 
 	return snap, nil
+}
+
+// resolveCapturedAt picks the snapshot's captured_at, mirroring the
+// receipt / groundtruth suppression model so cohort-walker can join the
+// determinism gate (workshop/scripts/det-gate.sh). Order:
+//
+//   - NoTimestamp -> the zero time (serialises to the fixed sentinel
+//     "0001-01-01T00:00:00Z"; byte-identical run-to-run).
+//   - an injected opts.Now -> that clock (tests / callers).
+//   - then SOURCE_DATE_EPOCH (reproducible-build convention: integer seconds
+//     since the Unix epoch) for committed/deterministic snapshots.
+//   - else the wall clock.
+//
+// A set-but-unparseable SOURCE_DATE_EPOCH falls back to the wall clock (same as
+// groundtruth's sourceDateEpoch).
+func resolveCapturedAt(opts ScanOptions) time.Time {
+	if opts.NoTimestamp {
+		return time.Time{}
+	}
+	if !opts.Now.IsZero() {
+		return opts.Now.UTC()
+	}
+	if t, ok := sourceDateEpoch(); ok {
+		return t
+	}
+	return time.Now().UTC()
+}
+
+// sourceDateEpoch returns the time encoded in the SOURCE_DATE_EPOCH env var (the
+// reproducible-build convention: seconds since the Unix epoch) if it is set and
+// parseable, so captured_at is deterministic across runs.
+func sourceDateEpoch() (time.Time, bool) {
+	s := strings.TrimSpace(os.Getenv("SOURCE_DATE_EPOCH"))
+	if s == "" {
+		return time.Time{}, false
+	}
+	sec, err := strconv.ParseInt(s, 10, 64)
+	if err != nil {
+		return time.Time{}, false
+	}
+	return time.Unix(sec, 0).UTC(), true
 }
 
 func cohortNameFromRoot(root string) string {

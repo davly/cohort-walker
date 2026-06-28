@@ -50,7 +50,18 @@ cohort-walker diff --baseline cohort-snapshot-2026-05-28.json --current current.
 
 # 5. KAT-1 self-check (re-derives the cohort anchor).
 cohort-walker kat-1-check
+
+# 6. Deterministic scan — suppress the wall-clock captured_at so two scans of
+#    an unchanged tree are byte-identical (for committed snapshots / the
+#    determinism gate). SOURCE_DATE_EPOCH is honored when the flag is omitted.
+cohort-walker scan --no-timestamp --out current.json
 ```
+
+The only wall-clock field in a snapshot is `captured_at`. `--no-timestamp`
+zeroes it (`0001-01-01T00:00:00Z`); otherwise an integer `SOURCE_DATE_EPOCH`
+(seconds since the Unix epoch) pins it for reproducible builds. Both make
+`scan` output byte-for-byte stable run-to-run — mirroring `receipt` /
+`groundtruth`.
 
 ## Exit codes
 

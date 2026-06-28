@@ -79,7 +79,7 @@ func printUsage(w io.Writer) {
 	fmt.Fprint(w, `cohort-walker — cohort drift detector
 
 Usage:
-  cohort-walker scan        [--out FILE] [--roots A,B,C]
+  cohort-walker scan        [--out FILE] [--roots A,B,C] [--no-timestamp]
   cohort-walker verify      --baseline FILE [--strict] [--roots A,B,C] [--horizon DUR]
   cohort-walker report      --baseline FILE [--out FILE] [--roots A,B,C]
   cohort-walker diff        --baseline FILE --current FILE
@@ -100,10 +100,11 @@ func cmdScan(args []string, stdout, stderr io.Writer) int {
 	fs.SetOutput(stderr)
 	out := fs.String("out", "", "write snapshot JSON to this file (default: stdout)")
 	rootsFlag := fs.String("roots", "", "comma-separated cohort roots (default: $LIMITLESS_ROOT layout)")
+	noTimestamp := fs.Bool("no-timestamp", false, "zero captured_at so two scans of an unchanged tree are byte-identical (SOURCE_DATE_EPOCH is honored otherwise)")
 	if err := fs.Parse(args); err != nil {
 		return walker.ExitUsage
 	}
-	snap, err := walker.Scan(walker.ScanOptions{Roots: resolveRoots(*rootsFlag)})
+	snap, err := walker.Scan(walker.ScanOptions{Roots: resolveRoots(*rootsFlag), NoTimestamp: *noTimestamp})
 	if err != nil {
 		fmt.Fprintf(stderr, "cohort-walker scan: %v\n", err)
 		return walker.ExitInternal
