@@ -41,7 +41,13 @@ cohort-walker scan --out cohort-snapshot-2026-05-28.json
 # 2. Later — compare current cohort to baseline (CI gate).
 cohort-walker verify --baseline cohort-snapshot-2026-05-28.json
 
-# 3. Human-readable drift report.
+# 2b. Structured verify verdict (exit_code + summary + R154 audit_row) as JSON.
+#     captured_at on the audit row mirrors the scan, so it is byte-stable under
+#     a fixed clock (SOURCE_DATE_EPOCH / --no-timestamp). Exit code is unchanged.
+cohort-walker verify --baseline cohort-snapshot-2026-05-28.json --json
+
+# 3. Human-readable drift report (includes the absolute "Below R174 5-of-5"
+#    census naming every chronically-incomplete member, not just changed ones).
 cohort-walker report --baseline cohort-snapshot-2026-05-28.json --out drift.md
 
 # 4. Machine-readable delta JSON.

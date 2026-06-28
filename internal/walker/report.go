@@ -67,6 +67,24 @@ func RenderMarkdown(w io.Writer, report *DiffReport) error {
 				row.Cohort, row.Substrate, row.Total, row.KAT1, row.LiabilityFooter, row.LoudOnce, row.IsStale))
 		}
 		bw.WriteString("\n")
+
+		// Section: absolute below-R174 census — names every current member that
+		// fails the 5-of-5 bar regardless of whether it changed since the
+		// baseline. The delta layer only flags NEW members, so this is the only
+		// place a chronically-incomplete baseline member becomes visible.
+		below := BelowR174Members(report.Current)
+		bw.WriteString("## Below R174 5-of-5 (current snapshot)\n\n")
+		if len(below) == 0 {
+			bw.WriteString("_All current members meet R174 5-of-5._\n\n")
+		} else {
+			bw.WriteString("| Cohort | Member | Substrate | Missing markers |\n")
+			bw.WriteString("|---|---|---|---|\n")
+			for _, row := range below {
+				bw.WriteString(fmt.Sprintf("| %s | %s | %s | %s |\n",
+					row.Cohort, row.Member, row.Substrate, mdEscape(row.Missing)))
+			}
+			bw.WriteString("\n")
+		}
 	}
 
 	// R69a human-escape clause + R166 liability footer — both mandatory
@@ -86,20 +104,69 @@ func RenderJSON(w io.Writer, report *DiffReport) error {
 	}
 	enc := json.NewEncoder(w)
 	enc.SetIndent("", "  ")
+	// Absolute below-bar census surfaced alongside the deltas so a downstream
+	// consumer sees chronically-incomplete members, not only changed ones.
+	// Normalise nil to an empty slice for a stable [] (never null) shape.
+	below := BelowR174Members(report.Current)
+	if below == nil {
+		below = []BelowR174Row{}
+	}
 	out := struct {
-		SchemaVersion  string  `json:"schema_version"`
-		LiabilityNote  string  `json:"liability_note"`
-		EscapeClause   string  `json:"human_escape"`
-		Deltas         []Delta `json:"deltas"`
-		Summary        Summary `json:"summary"`
+		SchemaVersion string         `json:"schema_version"`
+		LiabilityNote string         `json:"liability_note"`
+		EscapeClause  string         `json:"human_escape"`
+		Deltas        []Delta        `json:"deltas"`
+		Summary       Summary        `json:"summary"`
+		BelowR174     []BelowR174Row `json:"below_r174_5of5"`
 	}{
 		SchemaVersion: SchemaVersion,
 		LiabilityNote: "see cohort/legal/liability_footer.go — output is informational, not a compliance verdict",
 		EscapeClause:  escape.HumanEscape,
 		Deltas:        report.Deltas,
 		Summary:       report.Summary,
+		BelowR174:     below,
 	}
 	return enc.Encode(out)
+}
+
+// BelowR174Row names a current-snapshot member that fails the R174 5-of-5
+// bar, with the comma-joined list of missing markers. This is an ABSOLUTE
+// census, not a delta: the missing_r174_5of5 DELTA is only ever emitted for
+// NEW members (classifyAbsolute), so a member that was already below the bar
+// in the baseline and stayed there produces no delta and would otherwise be
+// invisible. This row surfaces those chronically-incomplete members.
+type BelowR174Row struct {
+	Cohort    string `json:"cohort"`
+	Member    string `json:"member"`
+	Substrate string `json:"substrate"`
+	Missing   string `json:"missing_markers"`
+}
+
+// BelowR174Members returns every current member failing the 5-of-5 bar,
+// sorted by (cohort, member) for determinism. Returns nil for a nil snapshot.
+func BelowR174Members(snap *Snapshot) []BelowR174Row {
+	if snap == nil {
+		return nil
+	}
+	var rows []BelowR174Row
+	for _, m := range snap.Members {
+		if meetsR174FiveOfFive(m.Markers) {
+			continue
+		}
+		rows = append(rows, BelowR174Row{
+			Cohort:    m.Cohort,
+			Member:    m.Name,
+			Substrate: string(m.Substrate),
+			Missing:   missingR174Detail(m.Markers),
+		})
+	}
+	sort.Slice(rows, func(i, j int) bool {
+		if rows[i].Cohort != rows[j].Cohort {
+			return rows[i].Cohort < rows[j].Cohort
+		}
+		return rows[i].Member < rows[j].Member
+	})
+	return rows
 }
 
 // censusRow is one (cohort, substrate) summary row.
