@@ -222,6 +222,54 @@ func TestCLI_Verify_MarkerGained_ExitOK(t *testing.T) {
 	}
 }
 
+// --- verify --json (cw-verify-json-audit) -----------------------------------
+
+// TestCLI_Verify_JSON_EmitsCIResult is the end-to-end wiring proof for
+// `verify --json`: the marker_lost run must print the structured CIResult
+// (exit_code + summary + R154 audit_row) to stdout and exit non-zero.
+func TestCLI_Verify_JSON_EmitsCIResult(t *testing.T) {
+	root := mkRootWithGoMember(t) // flagships/alpha with go.mod + plain a.go (no markers)
+	flagships := filepath.Join(root, "flagships")
+	baseline := filepath.Join(t.TempDir(), "base.json")
+	mustWrite(t, baseline, freshBaselineJSON(
+		`{"name":"alpha","path":"x","cohort":"flagships","substrate":"go","markers":{"has_loud_once_wiring":true}}`))
+
+	var out, errb bytes.Buffer
+	code := run([]string{"verify", "--json", "--baseline", baseline, "--roots", flagships}, &out, &errb)
+	if code != walker.ExitDriftFail {
+		t.Fatalf("verify --json marker_lost want exit %d, got %d (out=%q err=%q)",
+			walker.ExitDriftFail, code, out.String(), errb.String())
+	}
+	var got struct {
+		ExitCode int            `json:"exit_code"`
+		Summary  walker.Summary `json:"summary"`
+		Audit    struct {
+			RuleTag string `json:"rule_tag"`
+			Actor   string `json:"actor"`
+			Outcome string `json:"outcome"`
+		} `json:"audit_row"`
+	}
+	if err := json.Unmarshal(out.Bytes(), &got); err != nil {
+		t.Fatalf("verify --json output is not valid JSON: %v\nbody=%s", err, out.String())
+	}
+	if got.ExitCode != walker.ExitDriftFail {
+		t.Fatalf("exit_code want %d, got %d", walker.ExitDriftFail, got.ExitCode)
+	}
+	if got.Summary.Fail < 1 {
+		t.Fatalf("summary.fail must be >=1; got %+v", got.Summary)
+	}
+	if got.Audit.RuleTag != walker.VerifyAuditRuleTag {
+		t.Fatalf("audit_row.rule_tag want %q, got %q", walker.VerifyAuditRuleTag, got.Audit.RuleTag)
+	}
+	if got.Audit.Outcome != "FAIL" {
+		t.Fatalf("audit_row.outcome want FAIL, got %q", got.Audit.Outcome)
+	}
+	// The default human verdict line must NOT be present under --json.
+	if strings.Contains(out.String(), "cohort-walker verify: fail=") {
+		t.Fatalf("--json must suppress the human verdict line; out=%q", out.String())
+	}
+}
+
 // --- --roots resolution -----------------------------------------------------
 
 func TestResolveRoots_CommaSeparated_TrimsAndSkipsEmpty(t *testing.T) {

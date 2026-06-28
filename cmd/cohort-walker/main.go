@@ -80,7 +80,7 @@ func printUsage(w io.Writer) {
 
 Usage:
   cohort-walker scan        [--out FILE] [--roots A,B,C] [--no-timestamp]
-  cohort-walker verify      --baseline FILE [--strict] [--roots A,B,C] [--horizon DUR]
+  cohort-walker verify      --baseline FILE [--strict] [--json] [--roots A,B,C] [--horizon DUR]
   cohort-walker report      --baseline FILE [--out FILE] [--roots A,B,C]
   cohort-walker diff        --baseline FILE --current FILE
   cohort-walker kat-1-check
@@ -125,6 +125,7 @@ func cmdVerify(args []string, stdout, stderr io.Writer) int {
 	fs.SetOutput(stderr)
 	baseline := fs.String("baseline", "", "path to baseline snapshot JSON (required)")
 	strict := fs.Bool("strict", false, "treat WARN as failure (exit 2)")
+	jsonOut := fs.Bool("json", false, "emit the structured CIResult (exit_code + summary + R154 audit_row) instead of the human verdict line")
 	rootsFlag := fs.String("roots", "", "comma-separated cohort roots (default: $LIMITLESS_ROOT layout)")
 	horizonFlag := fs.String("horizon", firewall.DefaultHorizon.String(), "staleness horizon (Go duration, e.g. 720h)")
 	if err := fs.Parse(args); err != nil {
@@ -147,7 +148,7 @@ func cmdVerify(args []string, stdout, stderr io.Writer) int {
 	}
 	warnOnDegradation(cur, stderr)
 
-	cfg := walker.CIConfig{StrictWarn: *strict, BaselinePath: *baseline}
+	cfg := walker.CIConfig{StrictWarn: *strict, JSON: *jsonOut, BaselinePath: *baseline}
 	return walker.VerifyCI(cfg, base, cur, stdout)
 }
 
