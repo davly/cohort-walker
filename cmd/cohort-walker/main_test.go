@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"os"
 	"path/filepath"
 	"strings"
@@ -39,6 +40,48 @@ func TestCLI_Help_IsOK(t *testing.T) {
 	}
 	if !strings.Contains(out.String(), "cohort-walker") {
 		t.Fatalf("help output missing banner: %q", out.String())
+	}
+}
+
+// TestCLI_Version_EmitsMachineReadableJSON covers the version subcommand: it
+// exits 0 and emits a single JSON object carrying tool + version +
+// schema_version (the schema_version matching the field stamped into snapshots).
+func TestCLI_Version_EmitsMachineReadableJSON(t *testing.T) {
+	for _, arg := range []string{"version", "-version", "--version"} {
+		var out, errb bytes.Buffer
+		code := run([]string{arg}, &out, &errb)
+		if code != walker.ExitOK {
+			t.Fatalf("%q want exit %d, got %d (err=%q)", arg, walker.ExitOK, code, errb.String())
+		}
+		var got struct {
+			Tool          string `json:"tool"`
+			Version       string `json:"version"`
+			SchemaVersion string `json:"schema_version"`
+		}
+		if err := json.Unmarshal(out.Bytes(), &got); err != nil {
+			t.Fatalf("%q output is not valid JSON: %v (got %q)", arg, err, out.String())
+		}
+		if got.Tool != "cohort-walker" {
+			t.Fatalf("%q tool field = %q, want cohort-walker", arg, got.Tool)
+		}
+		if got.SchemaVersion != walker.SchemaVersion {
+			t.Fatalf("%q schema_version = %q, want %q", arg, got.SchemaVersion, walker.SchemaVersion)
+		}
+		if got.Version == "" {
+			t.Fatalf("%q version field is empty", arg)
+		}
+	}
+}
+
+// TestCLI_Version_Deterministic pins the byte-for-byte stability of the version
+// output (no maps, no wall-clock) so two invocations are identical.
+func TestCLI_Version_Deterministic(t *testing.T) {
+	var a, b bytes.Buffer
+	var errb bytes.Buffer
+	run([]string{"version"}, &a, &errb)
+	run([]string{"version"}, &b, &errb)
+	if !bytes.Equal(a.Bytes(), b.Bytes()) {
+		t.Fatalf("version output not byte-identical:\n--- a ---\n%s\n--- b ---\n%s", a.String(), b.String())
 	}
 }
 
@@ -218,6 +261,44 @@ func TestCLI_Verify_FreshBaseline_Exit0(t *testing.T) {
 	if code != walker.ExitOK {
 		t.Fatalf("fresh-baseline verify want exit %d, got %d (out=%q err=%q)",
 			walker.ExitOK, code, out.String(), errb.String())
+	}
+}
+
+// TestCLI_Verify_JSONExitCodeMatchesHuman pins the invariant that --json is an
+// output-format toggle ONLY: it must never change the verify exit code relative
+// to the human verdict for the same inputs. Covered for both the OK path (fresh
+// baseline → exit 0) and the stale path (exit 3, decided before any format
+// branch). Without this, downstream automation that flips to --json for parsing
+// could silently observe a different gate verdict.
+func TestCLI_Verify_JSONExitCodeMatchesHuman(t *testing.T) {
+	t.Setenv("SOURCE_DATE_EPOCH", "")
+	root := mkRootWithGoMember(t)
+	flagships := filepath.Join(root, "flagships")
+	fresh := filepath.Join(t.TempDir(), "fresh.json")
+	var out, errb bytes.Buffer
+	if code := run([]string{"scan", "--out", fresh, "--roots", flagships}, &out, &errb); code != walker.ExitOK {
+		t.Fatalf("baseline scan failed: exit %d err=%q", code, errb.String())
+	}
+	stale := filepath.Join(t.TempDir(), "stale.json")
+	mustWrite(t, stale,
+		`{"schema_version":"cohort-walker.v1","captured_at":"0001-01-01T00:00:00Z","roots":[],"members":[]}`)
+
+	for _, tc := range []struct {
+		name, baseline string
+	}{
+		{"fresh-ok", fresh},
+		{"stale-exit3", stale},
+	} {
+		verify := func(extra ...string) int {
+			t.Helper()
+			var o, e bytes.Buffer
+			return run(append([]string{"verify", "--baseline", tc.baseline, "--roots", flagships}, extra...), &o, &e)
+		}
+		human := verify()
+		jsonCode := verify("--json")
+		if human != jsonCode {
+			t.Fatalf("%s: --json exit %d != human exit %d (must be identical)", tc.name, jsonCode, human)
+		}
 	}
 }
 

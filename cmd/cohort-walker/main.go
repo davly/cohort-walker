@@ -28,6 +28,7 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/hex"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"io"
@@ -42,8 +43,22 @@ import (
 	"github.com/davly/cohort-walker/internal/walker"
 )
 
+// toolVersion is cohort-walker's own release version, defined INLINE (not a
+// shared lib) to preserve the cohort zero-non-stdlib / anti-bloat posture. It is
+// surfaced by the `version` subcommand alongside the snapshot schema_version so a
+// caller can pin both the binary and the JSON contract it speaks.
+const toolVersion = "0.1.0"
+
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdout, os.Stderr))
+}
+
+// versionInfo is the machine-readable `version` payload. Field order mirrors the
+// family (buildgate): tool, version, schema_version.
+type versionInfo struct {
+	Tool          string `json:"tool"`
+	Version       string `json:"version"`
+	SchemaVersion string `json:"schema_version"`
 }
 
 // run is the testable entry point: it returns an exit code instead of
@@ -65,6 +80,8 @@ func run(args []string, stdout, stderr io.Writer) int {
 		return cmdDiff(rest, stdout, stderr)
 	case "kat-1-check":
 		return cmdKAT1Check(rest, stdout, stderr)
+	case "version", "-version", "--version":
+		return cmdVersion(stdout, stderr)
 	case "-h", "--help", "help":
 		printUsage(stdout)
 		return walker.ExitOK
@@ -84,6 +101,7 @@ Usage:
   cohort-walker report      --baseline FILE [--out FILE] [--roots A,B,C]
   cohort-walker diff        --baseline FILE --current FILE
   cohort-walker kat-1-check
+  cohort-walker version     (print tool + schema_version as JSON; alias --version)
 
 Roots default to $LIMITLESS_ROOT/{flagships,infrastructure,engines,foundation}
 when --roots is omitted (cross-platform; no hardcoded drive letter).
@@ -244,6 +262,23 @@ func cmdKAT1Check(args []string, stdout, stderr io.Writer) int {
 		return walker.ExitKAT1Drift
 	}
 	fmt.Fprintf(stdout, "kat-1-check: OK %s\n", got)
+	return walker.ExitOK
+}
+
+// cmdVersion emits the machine-readable version contract (tool + binary version
+// + snapshot schema_version) as deterministic JSON and exits 0. It is a
+// meta-query: no scan, no filesystem touch. The schema_version mirrors the
+// field stamped into every snapshot so a caller can pin the JSON contract.
+func cmdVersion(stdout, stderr io.Writer) int {
+	enc := json.NewEncoder(stdout)
+	if err := enc.Encode(versionInfo{
+		Tool:          "cohort-walker",
+		Version:       toolVersion,
+		SchemaVersion: walker.SchemaVersion,
+	}); err != nil {
+		fmt.Fprintf(stderr, "cohort-walker version: %v\n", err)
+		return walker.ExitInternal
+	}
 	return walker.ExitOK
 }
 
