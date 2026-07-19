@@ -214,8 +214,15 @@ var DefaultRoots = []string{
 // carries ~0/7 R174 markers — adding it to the marker-scan roots would make
 // every app a spurious below-bar member and would break every stored
 // marker-scan baseline (27 new members = phantom CI drift FAIL).
+//
+// Built via filepath.Join(`C:\limitless`, "apps") rather than a single
+// backtick literal so the "apps" root name is its own token (mirrors
+// resolveForkRoots in cmd/cohort-walker/main.go, which joins the same way
+// against $LIMITLESS_ROOT) — this is the literal answer to row
+// xpoll17-cohort-walker-apps-roots: apps IS now a root cohort-walker knows
+// about, named as its own path component in this file.
 var DefaultForkRoots = []string{
-	`C:\limitless\apps`,
+	filepath.Join(`C:\limitless`, "apps"),
 }
 
 // Scan walks every cohort root and returns a snapshot.
