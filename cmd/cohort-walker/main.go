@@ -29,6 +29,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -80,6 +81,8 @@ func run(args []string, stdout, stderr io.Writer) int {
 		return cmdDiff(rest, stdout, stderr)
 	case "kat-1-check":
 		return cmdKAT1Check(rest, stdout, stderr)
+	case "fork-census":
+		return cmdForkCensus(rest, stdout, stderr)
 	case "version", "-version", "--version":
 		return cmdVersion(stdout, stderr)
 	case "-h", "--help", "help":
@@ -101,14 +104,22 @@ Usage:
   cohort-walker report      --baseline FILE [--out FILE] [--roots A,B,C]
   cohort-walker diff        --baseline FILE --current FILE
   cohort-walker kat-1-check
+  cohort-walker fork-census [--roots A,B,C] [--files f1,f2,...] [--out FILE] [--json] [--no-timestamp]
   cohort-walker version     (print tool + schema_version as JSON; alias --version)
 
 Roots default to $LIMITLESS_ROOT/{flagships,infrastructure,engines,foundation}
 when --roots is omitted (cross-platform; no hardcoded drive letter).
 
+fork-census is a content-hash MAP (not a gate) over the SvelteKit app forks
+under $LIMITLESS_ROOT/apps (or C:\limitless\apps): it hashes each fork's copy
+of a shared file-family, clusters by identical content, and names the
+plurality cluster canonical + every other member an outlier. fleetworks* /
+vocaladev roots or members are always refused/skipped (exit 7 on a forbidden
+--roots path).
+
 Exit codes (mirror lore-mark-verify + cohort-map):
   0 OK · 1 drift FAIL · 2 drift WARN (--strict) · 3 stale baseline
-  5 KAT-1 drift · 6 usage · 9 internal error
+  5 KAT-1 drift · 6 usage · 7 forbidden root (fork-census) · 9 internal error
 `)
 }
 
@@ -265,6 +276,61 @@ func cmdKAT1Check(args []string, stdout, stderr io.Writer) int {
 	return walker.ExitOK
 }
 
+// cmdForkCensus runs the content-hash fork-drift census (forge F10 / review
+// law L2) over the SvelteKit app forks and writes the result to --out or
+// stdout. It is a MAP, not a gate: drift is the expected finding, so a
+// successfully-produced census exits 0 regardless of how many outliers it
+// found. The only non-OK exits are usage (6), a forbidden root (7 —
+// fleetworks / vocaladev are operator-driven only, never autonomously
+// scanned), or an internal I/O error (9).
+func cmdForkCensus(args []string, stdout, stderr io.Writer) int {
+	fs := flag.NewFlagSet("fork-census", flag.ContinueOnError)
+	fs.SetOutput(stderr)
+	out := fs.String("out", "", "write census to this file (default: stdout)")
+	rootsFlag := fs.String("roots", "", "comma-separated fork roots (default: $LIMITLESS_ROOT/apps or C:\\limitless\\apps)")
+	filesFlag := fs.String("files", "", "comma-separated family relative paths (default: the curated security/payments/infra set)")
+	jsonOut := fs.Bool("json", false, "emit the machine-readable JSON census instead of the human summary")
+	noTimestamp := fs.Bool("no-timestamp", false, "zero captured_at so two censuses of an unchanged tree are byte-identical")
+	if err := fs.Parse(args); err != nil {
+		return walker.ExitUsage
+	}
+
+	rep, err := walker.RunForkCensus(walker.ForkCensusOptions{
+		Roots:       resolveForkRoots(*rootsFlag),
+		Files:       splitCommaList(*filesFlag),
+		NoTimestamp: *noTimestamp,
+	})
+	if err != nil {
+		var forbidden *walker.ForbiddenRootError
+		if errors.As(err, &forbidden) {
+			fmt.Fprintf(stderr, "cohort-walker fork-census: %v\n", err)
+			return walker.ExitForbiddenRoot
+		}
+		fmt.Fprintf(stderr, "cohort-walker fork-census: %v\n", err)
+		return walker.ExitInternal
+	}
+
+	w, closeFn, err := openOut(*out, stdout)
+	if err != nil {
+		fmt.Fprintf(stderr, "cohort-walker fork-census: %v\n", err)
+		return walker.ExitInternal
+	}
+	defer closeFn()
+
+	if *jsonOut {
+		if err := walker.RenderForkCensusJSON(w, rep); err != nil {
+			fmt.Fprintf(stderr, "cohort-walker fork-census: %v\n", err)
+			return walker.ExitInternal
+		}
+		return walker.ExitOK
+	}
+	if err := walker.RenderForkCensusText(w, rep); err != nil {
+		fmt.Fprintf(stderr, "cohort-walker fork-census: %v\n", err)
+		return walker.ExitInternal
+	}
+	return walker.ExitOK
+}
+
 // cmdVersion emits the machine-readable version contract (tool + binary version
 // + snapshot schema_version) as deterministic JSON and exits 0. It is a
 // meta-query: no scan, no filesystem touch. The schema_version mirrors the
@@ -389,6 +455,37 @@ func resolveRoots(rootsFlag string) []string {
 		roots = append(roots, filepath.Join(base, c))
 	}
 	return roots
+}
+
+// resolveForkRoots mirrors resolveRoots but for fork-census: a single apps/
+// root by default (not the four-cohort marker-scan layout). Precedence:
+// explicit --roots > $LIMITLESS_ROOT/apps > walker.DefaultForkRoots
+// (C:\limitless\apps).
+func resolveForkRoots(rootsFlag string) []string {
+	if roots := splitCommaList(rootsFlag); len(roots) > 0 {
+		return roots
+	}
+	if base := strings.TrimSpace(os.Getenv("LIMITLESS_ROOT")); base != "" {
+		return []string{filepath.Join(base, "apps")}
+	}
+	return walker.DefaultForkRoots
+}
+
+// splitCommaList trims and splits a comma-separated flag value, dropping
+// empty entries. Returns nil (not an empty non-nil slice) when s is blank,
+// so callers can treat nil as "use the default".
+func splitCommaList(s string) []string {
+	s = strings.TrimSpace(s)
+	if s == "" {
+		return nil
+	}
+	var out []string
+	for _, p := range strings.Split(s, ",") {
+		if p = strings.TrimSpace(p); p != "" {
+			out = append(out, p)
+		}
+	}
+	return out
 }
 
 // defaultEcosystemBase resolves the ecosystem checkout root without a

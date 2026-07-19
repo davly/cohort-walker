@@ -32,6 +32,7 @@ const (
 	ExitStaleBaseline = 3
 	ExitKAT1Drift     = 5 // kat-1-check recompute diverged from the pinned anchor
 	ExitUsage         = 6 // bad / missing flag or unknown subcommand
+	ExitForbiddenRoot = 7 // fork-census: a root path names a forbidden tree (fleetworks / vocaladev)
 	ExitInternal      = 9
 )
 

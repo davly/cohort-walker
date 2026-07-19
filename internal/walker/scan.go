@@ -204,6 +204,20 @@ var DefaultRoots = []string{
 	`C:\limitless\foundation`,
 }
 
+// DefaultForkRoots is the fork-drift census default: the SvelteKit app fork
+// roots under C:\limitless\apps, all forked from apps/nexus-thin-template.
+// Forking creates no import edge, so dep/crosspoll oracles are blind to this
+// reuse; the fork-census subcommand (forkcensus.go) content-hashes each
+// fork's copy of a shared file-family to surface the canonical cluster and
+// the drifted outliers. Kept beside DefaultRoots deliberately: it IS roots
+// config, and it is NOT folded into DefaultRoots itself, because apps/
+// carries ~0/7 R174 markers — adding it to the marker-scan roots would make
+// every app a spurious below-bar member and would break every stored
+// marker-scan baseline (27 new members = phantom CI drift FAIL).
+var DefaultForkRoots = []string{
+	`C:\limitless\apps`,
+}
+
 // Scan walks every cohort root and returns a snapshot.
 func Scan(opts ScanOptions) (*Snapshot, error) {
 	if len(opts.Roots) == 0 {
